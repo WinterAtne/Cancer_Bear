@@ -9,6 +9,8 @@ var jump_cancel_multiple : float = .3333333
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 var max_fall_velocity : float = 1200
 
+@onready var spell_caster : SpellCaster = %SpellCaster
+
 #State
 var jump_buffered : bool = false
 var jump_canceled : bool = false
@@ -17,9 +19,13 @@ func _physics_process(delta):
 	vertical_movement(delta)
 	horizontal_movement(delta)
 	
+	cast_spells()
+	
 	move_and_slide()
 	
+	
 
+#Movement
 func horizontal_movement(delta : float) -> void:
 	var direction = Input.get_axis("left", "right")
 	
@@ -61,5 +67,24 @@ func vertical_movement(delta : float) -> void:
 	#Ensures we don't start falling really fast
 	if velocity.y < max_fall_velocity:
 		velocity.y += gravity * delta
+		
+	
+
+#Spell Casting
+func cast_spells() -> void:
+	if Input.is_action_just_pressed("spell_1"):
+		spell_caster.use_spell(0)
+		
+	if Input.is_action_just_pressed("spell_2"):
+		spell_caster.use_spell(1)
+		
+	if Input.is_action_just_pressed("spell_3"):
+		spell_caster.use_spell(2)
+		
+	if Input.is_action_just_pressed("spell_4"):
+		spell_caster.use_spell(3)
+		
+	if Input.is_action_just_pressed("spell_5"):
+		spell_caster.use_spell(4)
 		
 	

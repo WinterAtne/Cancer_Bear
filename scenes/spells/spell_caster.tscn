@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://dgcl4rb3rmkoa"]
+
+[ext_resource type="Script" path="res://scenes/spells/spell_caster.gd" id="1_gb4cu"]
+[ext_resource type="Resource" uid="uid://cf3spk0jnxvds" path="res://scenes/spells/null_spell.tres" id="2_iyb1j"]
+
+[node name="SpellCaster" type="Node2D"]
+script = ExtResource("1_gb4cu")
+spell_list = Array[Resource("res://scenes/spells/spell.gd")]([ExtResource("2_iyb1j"), ExtResource("2_iyb1j"), ExtResource("2_iyb1j"), ExtResource("2_iyb1j"), ExtResource("2_iyb1j")])
