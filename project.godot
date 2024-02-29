@@ -23,6 +23,10 @@ window/size/resizable=false
 window/size/window_width_override=1280
 window/size/window_height_override=720
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
+
 [input]
 
 up={
