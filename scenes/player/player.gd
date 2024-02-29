@@ -4,9 +4,9 @@ extends CharacterBody2D
 var speed : float = 300.0
 var acceleration : float = 1200
 
-var jump_velocity : float = -600.0
+var jump_velocity : float = -800.0
 var jump_cancel_multiple : float = .3333333
-var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
+var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
 var max_fall_velocity : float = 1200
 
 #State
