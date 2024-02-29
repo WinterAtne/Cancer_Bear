@@ -2,7 +2,7 @@ extends Node2D
 class_name SpellCaster
 
 @export var max_aberration : int = 200
-var aberation : int
+var aberration : int
 
 @export var spell_list : Array[Spell] = []
 
@@ -11,7 +11,7 @@ signal spell_used(spell : Spell)
 
 func _ready():
 	spell_list.resize(5)
-	aberation = max_aberration
+	aberration = max_aberration
 	
 
 func set_spell(index : int, new_spell : Spell) -> void:
@@ -25,10 +25,14 @@ func set_spell(index : int, new_spell : Spell) -> void:
 	
 
 func use_spell(index : int) -> void:
+	if (aberration <= 0):
+		return
+		
+	
 	var spell : Node2D = spell_list[index].effect.instantiate()
 	get_parent().get_parent().add_child(spell)
 	spell.global_position = global_position
-	aberation -= spell_list[index].aberration_cost
+	aberration -= spell_list[index].aberration_cost
 	
 	spell_used.emit(spell_list[index])
 	
