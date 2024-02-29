@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://cje2b0cqmuhbq"]
+
+[ext_resource type="Script" path="res://scenes/spells/spell.gd" id="1_5r087"]
+[ext_resource type="PackedScene" uid="uid://divvoqg2q1e68" path="res://scenes/damage_system/hurt_box.tscn" id="1_ip8wy"]
+
+[resource]
+script = ExtResource("1_5r087")
+name = "Spell"
+aberation_cost = 1
+effect = ExtResource("1_ip8wy")

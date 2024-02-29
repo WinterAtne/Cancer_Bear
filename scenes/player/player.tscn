@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dftgjy2uuutmn"]
+[gd_scene load_steps=6 format=3 uid="uid://dftgjy2uuutmn"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cf76y"]
 [ext_resource type="Texture2D" uid="uid://c6fc6b13575ch" path="res://assets/icon.svg" id="1_kh8ph"]
+[ext_resource type="PackedScene" uid="uid://dgcl4rb3rmkoa" path="res://scenes/spells/spell_caster.tscn" id="3_ajahj"]
+[ext_resource type="Resource" uid="uid://cje2b0cqmuhbq" path="res://scenes/spells/test_spell.tres" id="4_f0ct2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3gpdt"]
 radius = 64.3817
@@ -17,3 +19,7 @@ texture = ExtResource("1_kh8ph")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position_smoothing_enabled = true
+
+[node name="SpellCaster" parent="." instance=ExtResource("3_ajahj")]
+unique_name_in_owner = true
+spell_list = Array[Resource("res://scenes/spells/spell.gd")]([ExtResource("4_f0ct2")])
