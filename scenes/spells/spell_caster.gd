@@ -10,7 +10,9 @@ signal spell_list_changed(index : int, new_spell : Spell)
 signal spell_used(spell : Spell)
 
 func _ready():
+	spell_list.resize(5)
 	aberation = max_aberration
+	
 
 func set_spell(index : int, new_spell : Spell) -> void:
 	if index >= 5:

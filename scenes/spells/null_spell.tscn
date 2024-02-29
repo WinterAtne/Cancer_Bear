@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bolfbud2urol8"]
+
+[ext_resource type="Script" path="res://scenes/spells/null_spell.gd" id="1_otki5"]
+
+[node name="NullSpell" type="Node2D"]
+editor_description = "This is a useless spell that exists to prevent errors when casting empty spell slots."
+script = ExtResource("1_otki5")
