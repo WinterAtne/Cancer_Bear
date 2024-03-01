@@ -5,7 +5,6 @@
 
 [node name="Enemy" type="CharacterBody2D"]
 script = ExtResource("1_s1jfs")
-target = Vector2(-400, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(574, 259)
