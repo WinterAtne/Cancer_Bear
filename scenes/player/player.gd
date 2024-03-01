@@ -10,10 +10,14 @@ var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity") 
 var max_fall_velocity : float = 1200
 
 @onready var spell_caster : SpellCaster = %SpellCaster
+@onready var animator : AnimationPlayer = %AnimationPlayer
+@onready var sprite : Sprite2D = $Sprite
 
 #State
 var jump_buffered : bool = false
 var jump_canceled : bool = false
+
+var facing_right : bool = true
 
 func _physics_process(delta):
 	vertical_movement(delta)
@@ -23,6 +27,7 @@ func _physics_process(delta):
 	
 	move_and_slide()
 	
+	animate()
 	
 
 #Movement
@@ -70,6 +75,26 @@ func vertical_movement(delta : float) -> void:
 		
 	
 
+func animate():
+	if velocity.x != 0:
+		animator.play("upright_walk")
+		animator.speed_scale = velocity.x / speed
+		
+	else:
+		animator.play("idle_0")
+		animator.speed_scale = 1
+		
+	
+	if velocity.x < 0 and facing_right:
+		facing_right = false
+		sprite.flip_h = !facing_right
+		
+	elif velocity.x > 0 and not facing_right:
+		facing_right = true
+		sprite.flip_h = !facing_right
+	
+	
+
 #Spell Casting
 func cast_spells() -> void:
 	if Input.is_action_just_pressed("spell_1"):
@@ -88,3 +113,4 @@ func cast_spells() -> void:
 		spell_caster.use_spell(4)
 		
 	
+

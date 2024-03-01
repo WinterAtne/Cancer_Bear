@@ -52,6 +52,7 @@ script = ExtResource("1_cf76y")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+texture_filter = 1
 texture = ExtResource("2_jlfbp")
 hframes = 4
 vframes = 4
