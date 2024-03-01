@@ -7,7 +7,7 @@ var acceleration : float = 1200
 var jump_velocity : float = -800.0
 var jump_cancel_multiple : float = .3333333
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity") * 2
-var max_fall_velocity : float = 1200
+var max_fall_velocity : float = 900
 
 @onready var spell_caster : SpellCaster = %SpellCaster
 @onready var animator : AnimationPlayer = %AnimationPlayer
@@ -78,11 +78,12 @@ func vertical_movement(delta : float) -> void:
 func animate():
 	if velocity.x != 0:
 		animator.play("upright_walk")
+		#=1 when velocity = speed
 		animator.speed_scale = velocity.x / speed
 		
 	else:
 		animator.play("idle_0")
-		animator.speed_scale = 1
+		animator.speed_scale
 		
 	
 	if velocity.x < 0 and facing_right:

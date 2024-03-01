@@ -44,18 +44,19 @@ _data = {
 "upright_walk": SubResource("Animation_ik3ey")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_3gpdt"]
-radius = 64.3817
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_k4c0t"]
+radius = 14.0
+height = 62.0
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cf76y")
 
 [node name="Sprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
+position = Vector2(0, -32)
 texture = ExtResource("2_jlfbp")
 hframes = 4
 vframes = 4
-frame = 15
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -65,10 +66,11 @@ libraries = {
 }
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-visible = false
-shape = SubResource("CircleShape2D_3gpdt")
+position = Vector2(0, -32)
+shape = SubResource("CapsuleShape2D_k4c0t")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -64)
 position_smoothing_enabled = true
 
 [node name="SpellCaster" parent="." instance=ExtResource("3_ajahj")]
