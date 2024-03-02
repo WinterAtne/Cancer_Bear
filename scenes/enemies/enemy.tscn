@@ -1,10 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dt0nuu2f2y5u7"]
+[gd_scene load_steps=5 format=3 uid="uid://dt0nuu2f2y5u7"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_s1jfs"]
 [ext_resource type="Texture2D" uid="uid://c6fc6b13575ch" path="res://assets/icon.svg" id="2_eoshw"]
+[ext_resource type="Resource" uid="uid://bkmwbs8lecvjl" path="res://scenes/enemies/default_enemy.tres" id="2_g013p"]
+[ext_resource type="PackedScene" uid="uid://b5y48km7qnkcy" path="res://scenes/damage_system/hit_box.tscn" id="3_g5od6"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("player")]
 script = ExtResource("1_s1jfs")
+enemy_definition = ExtResource("2_g013p")
+player = NodePath(".")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_eoshw")
@@ -13,3 +17,6 @@ texture = ExtResource("2_eoshw")
 unique_name_in_owner = true
 target_position = Vector2(1, 0)
 hit_from_inside = true
+
+[node name="HitBox" parent="." instance=ExtResource("3_g5od6")]
+unique_name_in_owner = true

@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Health_Profile" load_steps=2 format=3 uid="uid://cx6s6xkac07ge"]
+
+[ext_resource type="Script" path="res://scenes/damage_system/health_profile.gd" id="1_wbvpx"]
+
+[resource]
+script = ExtResource("1_wbvpx")
+max_health = 1

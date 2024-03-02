@@ -19,3 +19,7 @@ class_name Enemy
 @export_group("Player Interaction")
 @export var detection_range : float = 200
 @export var max_detection_angle : float = PI/4
+
+# Stats
+@export_group("Stats")
+@export var health_profile : Health_Profile

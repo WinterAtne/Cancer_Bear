@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=2 format=3 uid="uid://bkmwbs8lecvjl"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=3 format=3 uid="uid://bkmwbs8lecvjl"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy_definition.gd" id="1_4klar"]
+[ext_resource type="Resource" uid="uid://cx6s6xkac07ge" path="res://scenes/damage_system/default_health.tres" id="1_keo54"]
 
 [resource]
 script = ExtResource("1_4klar")
@@ -11,3 +12,4 @@ navigation_success_distance = 15.0
 can_fly = false
 detection_range = 200.0
 max_detection_angle = 0.785398
+health_profile = ExtResource("1_keo54")
