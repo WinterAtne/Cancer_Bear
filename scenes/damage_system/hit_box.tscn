@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5y48km7qnkcy"]
+[gd_scene load_steps=3 format=3 uid="uid://b5y48km7qnkcy"]
 
 [ext_resource type="Script" path="res://scenes/damage_system/hit_box.gd" id="1_b60nw"]
+[ext_resource type="Resource" uid="uid://cx6s6xkac07ge" path="res://scenes/damage_system/default_health.tres" id="2_fnj58"]
 
 [node name="HitBox" type="Area2D"]
+collision_layer = 512
+collision_mask = 512
 script = ExtResource("1_b60nw")
+health_profile = ExtResource("2_fnj58")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

@@ -11,13 +11,23 @@ var max_fall_velocity : float = 900
 
 @onready var spell_caster : SpellCaster = %SpellCaster
 @onready var animator : AnimationPlayer = %AnimationPlayer
-@onready var sprite : Sprite2D = $Sprite
+@onready var sprite : Sprite2D = %Sprite
+@onready var hitbox : HitBox = %HitBox
 
 #State
 var jump_buffered : bool = false
 var jump_canceled : bool = false
 
 var facing_right : bool = true
+
+#Signal
+signal player_hit(damage : int, health : int)
+signal player_died
+
+func _ready():
+	hitbox.hit.connect(take_damage.bind())
+	hitbox.died.connect(die.bind())
+	
 
 func _physics_process(delta):
 	vertical_movement(delta)
@@ -115,3 +125,11 @@ func cast_spells() -> void:
 		
 	
 
+#Health & Damage
+func take_damage(damage : int, health : int):
+	player_hit.emit(damage, health)
+	
+
+func die():
+	player_died.emit()
+	
