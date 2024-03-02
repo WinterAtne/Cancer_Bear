@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name EnemyController
 
 @export var enemy_definition : Enemy
 
