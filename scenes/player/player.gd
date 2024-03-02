@@ -96,7 +96,7 @@ func animate() -> void:
 		
 	else:
 		animator.play("idle_0")
-		animator.speed_scale
+		animator.speed_scale = 0.5
 		
 	
 	if velocity.x < 0 and facing_right:
