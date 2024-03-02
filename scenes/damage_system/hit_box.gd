@@ -7,23 +7,32 @@ signal hit(damage_profile : DamageProfile, health : int, normal : Vector2)
 signal died
 signal invulnerable
 signal not_invulnerable
+signal unpaused
 
+#State
+var paused : bool = true
 var current_health : int = -1
 var health_is_ready : bool = false
 var can_take_damage : bool = true
 
 func _ready() -> void:
-	await owner.ready # We get our health_profile from the owner
+	owner.ready.connect(
+		func () -> void:
+			paused = false
+			unpaused.emit()
+			
+	)
+	
+	if paused: await unpaused
+	
 	current_health = health_profile.max_health
 	health_is_ready = true
 	
 
 func _on_area_entered(area) -> void:
+	if paused: await unpaused
+	
 	if area is HurtBox:
-		if not health_is_ready: # We get our health_profile from the owner
-			await owner.ready
-			
-		
 		if !can_take_damage:
 			return
 			
@@ -35,6 +44,8 @@ func _on_area_entered(area) -> void:
 	
 
 func damage_immediate(damage_profile : DamageProfile, normal : Vector2):
+	if paused: await unpaused
+	
 	current_health -= damage_profile.damage
 	hit.emit(
 		damage_profile,
@@ -46,9 +57,7 @@ func damage_immediate(damage_profile : DamageProfile, normal : Vector2):
 	
 
 func heal(amount : int) -> void:
-	if not health_is_ready: # We get our health_profile from the owner
-			await owner.ready
-			
+	if paused: await unpaused
 	
 	current_health += amount
 	if current_health > health_profile.max_health:
@@ -56,6 +65,8 @@ func heal(amount : int) -> void:
 	
 
 func manage_invulnerable():
+	if paused: await unpaused
+	
 	if health_profile.invulnerable_seconds != -1:
 		can_take_damage = false
 		invulnerable.emit()
