@@ -10,7 +10,7 @@ var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 #State
 var target : Vector2
 var player_detected : bool
-var facing_right : bool
+var facing_right : bool = true
 
 func _ready() -> void:
 	player_detector.target_position = Vector2.RIGHT * enemy_definition.detection_range
@@ -58,18 +58,16 @@ func vertical_movement(delta : float, direction : float) -> void:
 # State Controllers & utilities
 
 func detect_player() -> void:
+	var valid_angle : bool = false
 	player_detector.look_at(PlayerData.player_instance.global_position + (Vector2.UP * 48))
-	if (absf(player_detector.rotation) < enemy_definition.max_detection_angle and facing_right or
+	if not (absf(player_detector.rotation) < enemy_definition.max_detection_angle and facing_right or
 		absf(player_detector.rotation) > enemy_definition.max_detection_angle and not facing_right):
-		player_detected = false
-		return
+		valid_angle = true
 		
 	
-	if player_detector.get_collider() == PlayerData.player_instance:
+	if player_detector.get_collider() == PlayerData.player_instance and valid_angle:
 		player_detected = true
-		
-	else:
-		player_detected = false
+		return
 		
 	
 
@@ -80,4 +78,15 @@ func _take_damage(damage : int, health : int) -> void:
 func _die() -> void:
 	queue_free()
 	pass
+	
+
+func flip_on_direction():
+	if velocity.x < 0 and facing_right:
+		facing_right = false
+		scale.x = -1
+		
+	elif velocity.x > 0 and not facing_right:
+		facing_right = true
+		scale.x = -1
+		
 	

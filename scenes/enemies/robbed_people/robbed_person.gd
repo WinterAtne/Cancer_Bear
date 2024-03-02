@@ -5,5 +5,7 @@ func _physics_process(delta):
 		target = PlayerData.player_instance.position
 		
 	
+	
+	flip_on_direction()
 	super._physics_process(delta)
 	
