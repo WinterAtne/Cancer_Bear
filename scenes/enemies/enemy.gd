@@ -59,14 +59,13 @@ func vertical_movement(delta : float, direction : float) -> void:
 
 func detect_player() -> void:
 	player_detector.look_at(PlayerData.player_instance.global_position + (Vector2.UP * 48))
-	if (absf(player_detector.rotation) > enemy_definition.max_detection_angle and facing_right or
-		absf(player_detector.rotation) < enemy_definition.max_detection_angle and not facing_right):
+	if (absf(player_detector.rotation) < enemy_definition.max_detection_angle and facing_right or
+		absf(player_detector.rotation) > enemy_definition.max_detection_angle and not facing_right):
 		return
 		
 	
 	if player_detector.get_collider() == PlayerData.player_instance:
 		player_detected = true
-		print("player detected")
 		
 	else:
 		player_detected = false
