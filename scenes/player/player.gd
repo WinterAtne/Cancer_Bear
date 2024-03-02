@@ -131,9 +131,16 @@ func cast_spells() -> void:
 #Health & Damage
 func take_damage(damage : int, health : int) -> void:
 	player_hit.emit(damage, health)
-	print(health)
+	print(health) 
 	
 
 func die() -> void:
 	player_died.emit()
+	reset_player.call_deferred()
+	
+
+#Utilities
+func reset_player():
+	#This function is used when the player is respawned
+	hitbox.heal(99)
 	
