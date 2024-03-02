@@ -7,6 +7,7 @@ var current_level : Node2D
 
 func _ready() -> void:
 	start_level(0)
+	PlayerData.player_instance.player_died.connect(restart_level.bind())
 	
 
 func restart_level() -> void:
@@ -26,6 +27,7 @@ func start_level(index : int) -> void:
 	PlayerData.pause_player(
 		func () -> void:
 			PlayerData.player_instance.position = levels[current_level_index].player_position[0]
+			PlayerData.player_instance.velocity = Vector2.ZERO
 			
 	)
 	
