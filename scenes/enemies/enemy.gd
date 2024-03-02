@@ -57,7 +57,7 @@ func vertical_movement(delta : float, direction : float) -> void:
 # State Controllers
 
 func detect_player() -> void:
-	player_detector.look_at(PlayerData.player_instance.global_position)
+	player_detector.look_at(PlayerData.player_instance.global_position + (Vector2.UP * 48))
 	if (absf(player_detector.rotation) > enemy_definition.max_detection_angle and facing_right or
 		absf(player_detector.rotation) < enemy_definition.max_detection_angle and not facing_right):
 		return
