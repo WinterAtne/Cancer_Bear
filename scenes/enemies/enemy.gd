@@ -4,7 +4,6 @@ extends CharacterBody2D
 
 #Parameters
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
-@export var player : CharacterBody2D
 @onready var player_detector : RayCast2D = %PlayerDetector
 
 #State
@@ -58,13 +57,13 @@ func vertical_movement(delta : float, direction : float) -> void:
 # State Controllers
 
 func detect_player():
-	player_detector.look_at(player.global_position)
+	player_detector.look_at(PlayerData.player_instance.global_position)
 	if (absf(player_detector.rotation) > enemy_definition.max_detection_angle and facing_right or
 		absf(player_detector.rotation) < enemy_definition.max_detection_angle and not facing_right):
 		return
 		
 	
-	if player_detector.get_collider() == player:
+	if player_detector.get_collider() == PlayerData.player_instance:
 		player_detected = true
 		print("player detected")
 		

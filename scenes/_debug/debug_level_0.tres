@@ -6,4 +6,4 @@
 [resource]
 script = ExtResource("1_m8osx")
 scene = ExtResource("1_6jr84")
-player_position = Array[Vector3]([Vector3(0, 0, 0)])
+player_position = Array[Vector2]([Vector2(0, 0)])

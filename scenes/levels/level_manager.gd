@@ -8,6 +8,12 @@ var current_level : Node2D
 func _ready():
 	start_level(0)
 	
+	for n in 80:
+		await get_tree().process_frame
+		
+	
+	start_level(1)
+	
 
 func restart_level():
 	start_level(current_level_index)
@@ -23,6 +29,10 @@ func start_level(index : int):
 	current_level = levels[current_level_index].scene.instantiate()
 	add_child(current_level)
 	
-	#Set player position to player position
-	#Depending on the door we entered through
+	PlayerData.pause_player(
+		func () -> void:
+			PlayerData.player_instance.position = levels[current_level_index].player_position[0]
+			
+	)
+	
 	
