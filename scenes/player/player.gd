@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Player
 
 #Parameters
 var speed : float = 300.0
@@ -25,6 +26,8 @@ signal player_hit(damage : int, health : int)
 signal player_died
 
 func _ready():
+	PlayerData.set_player(self)
+	
 	hitbox.hit.connect(take_damage.bind())
 	hitbox.died.connect(die.bind())
 	
