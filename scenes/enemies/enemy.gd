@@ -11,7 +11,7 @@ var target : Vector2
 var player_detected : bool
 var facing_right : bool
 
-func _ready():
+func _ready() -> void:
 	player_detector.target_position = Vector2.RIGHT * enemy_definition.detection_range
 	%HitBox.health_profile = enemy_definition.health_profile
 	%HitBox.hit.connect(_take_damage.bind())
@@ -56,7 +56,7 @@ func vertical_movement(delta : float, direction : float) -> void:
 
 # State Controllers
 
-func detect_player():
+func detect_player() -> void:
 	player_detector.look_at(PlayerData.player_instance.global_position)
 	if (absf(player_detector.rotation) > enemy_definition.max_detection_angle and facing_right or
 		absf(player_detector.rotation) < enemy_definition.max_detection_angle and not facing_right):
@@ -72,11 +72,11 @@ func detect_player():
 		
 	
 
-func _take_damage(damage : int, health : int):
+func _take_damage(damage : int, health : int) -> void:
 	pass
 	
 
-func _die():
+func _die() -> void:
 	queue_free()
 	pass
 	

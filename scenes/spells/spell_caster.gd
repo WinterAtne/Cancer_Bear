@@ -9,7 +9,7 @@ var aberration : int
 signal spell_list_changed(index : int, new_spell : Spell)
 signal spell_used(spell : Spell)
 
-func _ready():
+func _ready() -> void:
 	spell_list.resize(5)
 	aberration = max_aberration
 	

@@ -5,7 +5,7 @@ extends Node2D
 var current_level_index : int = 0
 var current_level : Node2D
 
-func _ready():
+func _ready() -> void:
 	start_level(0)
 	
 	for n in 80:
@@ -15,11 +15,11 @@ func _ready():
 	start_level(1)
 	
 
-func restart_level():
+func restart_level() -> void:
 	start_level(current_level_index)
 	
 
-func start_level(index : int):
+func start_level(index : int) -> void:
 	current_level_index = index
 	if current_level:
 		current_level.queue_free()
@@ -34,5 +34,4 @@ func start_level(index : int):
 			PlayerData.player_instance.position = levels[current_level_index].player_position[0]
 			
 	)
-	
 	

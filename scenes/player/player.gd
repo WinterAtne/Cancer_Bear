@@ -25,14 +25,14 @@ var facing_right : bool = true
 signal player_hit(damage : int, health : int)
 signal player_died
 
-func _ready():
+func _ready() -> void:
 	PlayerData.set_player(self)
 	
 	hitbox.hit.connect(take_damage.bind())
 	hitbox.died.connect(die.bind())
 	
 
-func _physics_process(delta):
+func _physics_process(delta) -> void:
 	vertical_movement(delta)
 	horizontal_movement(delta)
 	
@@ -88,7 +88,7 @@ func vertical_movement(delta : float) -> void:
 		
 	
 
-func animate():
+func animate() -> void:
 	if velocity.x != 0:
 		animator.play("upright_walk")
 		#=1 when velocity = speed
@@ -106,7 +106,7 @@ func animate():
 	elif velocity.x > 0 and not facing_right:
 		facing_right = true
 		sprite.flip_h = !facing_right
-	
+		
 	
 
 #Spell Casting
@@ -129,10 +129,10 @@ func cast_spells() -> void:
 	
 
 #Health & Damage
-func take_damage(damage : int, health : int):
+func take_damage(damage : int, health : int) -> void:
 	player_hit.emit(damage, health)
 	
 
-func die():
+func die() -> void:
 	player_died.emit()
 	

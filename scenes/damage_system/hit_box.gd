@@ -15,7 +15,7 @@ func _ready() -> void:
 	health_is_ready = true
 	
 
-func _on_area_entered(area):
+func _on_area_entered(area) -> void:
 	if area is HurtBox:
 		if not health_is_ready: # We get our health_profile from the owner
 			await owner.ready
@@ -28,9 +28,8 @@ func _on_area_entered(area):
 			
 		
 	
-	
 
-func heal(amount : int):
+func heal(amount : int) -> void:
 	if not health_is_ready: # We get our health_profile from the owner
 			await owner.ready
 			
