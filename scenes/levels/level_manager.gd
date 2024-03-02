@@ -8,12 +8,6 @@ var current_level : Node2D
 func _ready() -> void:
 	start_level(0)
 	
-	for n in 80:
-		await get_tree().process_frame
-		
-	
-	start_level(1)
-	
 
 func restart_level() -> void:
 	start_level(current_level_index)
