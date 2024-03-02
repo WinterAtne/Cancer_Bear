@@ -1,9 +1,10 @@
 extends Area2D
+class_name HitBox
 
-var health_profile : Health_Profile
+@export var health_profile : Health_Profile
 
 signal hit(damage : int,  health : int)
-signal die
+signal died
 
 var current_health : int = -1
 var health_is_ready : bool = false
@@ -23,7 +24,7 @@ func _on_area_entered(area):
 		current_health -= area.damage
 		hit.emit(area.damage, current_health)
 		if current_health <= 0:
-			die.emit()
+			died.emit()
 			
 		
 	

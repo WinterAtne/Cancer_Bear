@@ -16,7 +16,7 @@ func _ready():
 	player_detector.target_position = Vector2.RIGHT * enemy_definition.detection_range
 	%HitBox.health_profile = enemy_definition.health_profile
 	%HitBox.hit.connect(_take_damage.bind())
-	%HitBox.die.connect(_die.bind())
+	%HitBox.died.connect(_die.bind())
 	
 
 func _physics_process(delta) -> void:
