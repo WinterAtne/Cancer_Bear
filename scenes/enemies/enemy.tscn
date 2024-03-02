@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dt0nuu2f2y5u7"]
+[gd_scene load_steps=4 format=3 uid="uid://dt0nuu2f2y5u7"]
 
 [ext_resource type="Script" path="res://scenes/enemies/enemy.gd" id="1_s1jfs"]
-[ext_resource type="Texture2D" uid="uid://c6fc6b13575ch" path="res://assets/icon.svg" id="2_eoshw"]
 [ext_resource type="Resource" uid="uid://bkmwbs8lecvjl" path="res://scenes/enemies/default_enemy.tres" id="2_g013p"]
 [ext_resource type="PackedScene" uid="uid://b5y48km7qnkcy" path="res://scenes/damage_system/hit_box.tscn" id="3_g5od6"]
 
@@ -10,7 +9,6 @@ script = ExtResource("1_s1jfs")
 enemy_definition = ExtResource("2_g013p")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_eoshw")
 
 [node name="PlayerDetector" type="RayCast2D" parent="."]
 unique_name_in_owner = true

@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://cqecak1mh1jv2"]
+
+[ext_resource type="PackedScene" uid="uid://dt0nuu2f2y5u7" path="res://scenes/enemies/enemy.tscn" id="1_hmv1i"]
+[ext_resource type="Resource" uid="uid://bk2vbp3y7otpw" path="res://scenes/enemies/robbed_people/robbed_person.tres" id="2_llvw7"]
+[ext_resource type="Texture2D" uid="uid://47jr7urdo1ev" path="res://assets/robed_person.png" id="2_t0hy6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_am3ep"]
+height = 52.0
+
+[node name="RobbedPerson" instance=ExtResource("1_hmv1i")]
+enemy_definition = ExtResource("2_llvw7")
+
+[node name="Sprite2D" parent="." index="0"]
+position = Vector2(0, -32)
+texture = ExtResource("2_t0hy6")
+
+[node name="PlayerDetector" parent="." index="1"]
+position = Vector2(0, -32)
+
+[node name="HitBox" parent="." index="2"]
+position = Vector2(0, -32)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+position = Vector2(0, 6)
+shape = SubResource("CapsuleShape2D_am3ep")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+position = Vector2(0, -26)
+shape = SubResource("CapsuleShape2D_am3ep")

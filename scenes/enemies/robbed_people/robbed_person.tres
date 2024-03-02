@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://bk2vbp3y7otpw"]
+
+[ext_resource type="Script" path="res://scenes/damage_system/health_profile.gd" id="1_380ky"]
+[ext_resource type="Script" path="res://scenes/enemies/enemy_definition.gd" id="2_shhei"]
+
+[sub_resource type="Resource" id="Resource_3hcrb"]
+script = ExtResource("1_380ky")
+max_health = 4
+
+[resource]
+script = ExtResource("2_shhei")
+name = "Robbed Person"
+speed = 100.0
+acceleration = 2000.0
+navigation_success_distance = 15.0
+can_fly = false
+detection_range = 600.0
+max_detection_angle = 0.785398
+health_profile = SubResource("Resource_3hcrb")

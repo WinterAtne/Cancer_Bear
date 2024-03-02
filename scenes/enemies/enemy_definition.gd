@@ -5,7 +5,7 @@ class_name Enemy
 @export_group("MetaData")
 @export var name : String = "Good Person"
 @export var icon : Image
-@export var scene : PackedScene
+#@export var scene : PackedScene # Creates a ruccursive error
 
 # Navigation Parameters
 @export_group("Navigation")
