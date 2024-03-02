@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ckhfopg6maqmb"]
+
+[ext_resource type="Texture2D" uid="uid://c80ynf7b5u722" path="res://assets/grassy_forest.png" id="1_gaquc"]
+
+[node name="DebugLevel1" type="Sprite2D"]
+texture = ExtResource("1_gaquc")

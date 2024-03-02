@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://o7exvb45hpdj"]
+[gd_scene load_steps=5 format=3 uid="uid://o7exvb45hpdj"]
 
 [ext_resource type="PackedScene" uid="uid://dftgjy2uuutmn" path="res://scenes/player/player.tscn" id="1_seepl"]
-[ext_resource type="PackedScene" uid="uid://c5p71k3fxbn2t" path="res://scenes/levels/level_template.tscn" id="2_05pe7"]
+[ext_resource type="PackedScene" uid="uid://cygmmjo6j1rwl" path="res://scenes/levels/level_manager.tscn" id="2_ecqj0"]
+[ext_resource type="Resource" uid="uid://cm4h1qf2meiuo" path="res://scenes/_debug/debug_level_0.tres" id="3_du6xu"]
+[ext_resource type="Resource" uid="uid://uqojdx42lmha" path="res://scenes/_debug/debug_level_1.tres" id="4_urnvp"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_seepl")]
 
-[node name="LevelTemplate" parent="." instance=ExtResource("2_05pe7")]
-position = Vector2(0, 148)
+[node name="LevelManager" parent="." instance=ExtResource("2_ecqj0")]
+levels = Array[Resource("res://scenes/levels/level_definition.gd")]([ExtResource("3_du6xu"), ExtResource("4_urnvp")])

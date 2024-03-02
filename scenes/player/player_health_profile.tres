@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Health_Profile" load_steps=2 format=3 uid="uid://dqktmdin8ph32"]
+
+[ext_resource type="Script" path="res://scenes/damage_system/health_profile.gd" id="1_atrk7"]
+
+[resource]
+script = ExtResource("1_atrk7")
+max_health = 12
