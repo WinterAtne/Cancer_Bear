@@ -71,7 +71,7 @@ func detect_player() -> void:
 		
 	
 
-func _take_damage(damage : int, health : int, normal : Vector2, knockback : float) -> void:
+func _take_damage(damage_profile : DamageProfile, health : int, normal : Vector2) -> void:
 	pass
 	
 

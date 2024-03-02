@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://divvoqg2q1e68"]
+[gd_scene load_steps=3 format=3 uid="uid://divvoqg2q1e68"]
 
 [ext_resource type="Script" path="res://scenes/damage_system/hurt_box.gd" id="1_832mu"]
+[ext_resource type="Resource" uid="uid://bdce74t5nm8xg" path="res://scenes/damage_system/default_damage.tres" id="2_g7a1c"]
 
 [node name="HurtBox" type="Area2D"]
 collision_layer = 512
 collision_mask = 512
 script = ExtResource("1_832mu")
+damage_profile = ExtResource("2_g7a1c")

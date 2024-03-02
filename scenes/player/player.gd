@@ -129,9 +129,9 @@ func cast_spells() -> void:
 	
 
 #Health & Damage
-func take_damage(damage : int, health : int, normal : Vector2, knockback : float) -> void:
-	player_hit.emit(damage, health)
-	velocity += normal * knockback
+func take_damage(damage_profile : DamageProfile, health : int, normal : Vector2) -> void:
+	player_hit.emit(damage_profile.damage, health)
+	velocity += normal * damage_profile.knockback
 	
 
 func die() -> void:

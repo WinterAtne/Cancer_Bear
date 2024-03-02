@@ -3,7 +3,7 @@ class_name HitBox
 
 @export var health_profile : Health_Profile
 
-signal hit(damage : int,  health : int, normal : Vector2, knockback : float)
+signal hit(damage_profile : DamageProfile, health : int, normal : Vector2)
 signal died
 signal invulnerable
 signal not_invulnerable
@@ -28,11 +28,11 @@ func _on_area_entered(area) -> void:
 			print("cannot take damage")
 			return
 		
-		current_health -= area.damage
-		hit.emit(area.damage, 
-			current_health, 
-			(global_position - area.global_position).normalized(),
-			area.knockback)
+		current_health -= area.damage_profile.damage
+		hit.emit(
+			area.damage_profile,
+			current_health,
+			(global_position - area.global_position).normalized())
 		if current_health <= 0:
 			died.emit()
 			
