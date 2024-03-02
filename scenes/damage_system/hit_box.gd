@@ -25,19 +25,23 @@ func _on_area_entered(area) -> void:
 			
 		
 		if !can_take_damage:
-			print("cannot take damage")
 			return
-		
-		current_health -= area.damage_profile.damage
-		hit.emit(
-			area.damage_profile,
-			current_health,
-			(global_position - area.global_position).normalized())
-		if current_health <= 0:
-			died.emit()
 			
 		
+		damage_immediate(area.damage_profile, (global_position - area.global_position).normalized())
+		
 		manage_invulnerable()
+		
+	
+
+func damage_immediate(damage_profile : DamageProfile, normal : Vector2):
+	current_health -= damage_profile.damage
+	hit.emit(
+		damage_profile,
+		current_health,
+		normal)
+	if current_health <= 0:
+		died.emit()
 		
 	
 
