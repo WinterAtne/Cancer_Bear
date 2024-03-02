@@ -131,6 +131,7 @@ func cast_spells() -> void:
 #Health & Damage
 func take_damage(damage : int, health : int) -> void:
 	player_hit.emit(damage, health)
+	print(health)
 	
 
 func die() -> void:

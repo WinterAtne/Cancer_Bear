@@ -85,6 +85,12 @@ spell_5={
 ]
 }
 
+[layer_names]
+
+2d_physics/layer_10="general_damage"
+2d_physics/layer_11="anti_player_damage"
+2d_physics/layer_12="anti_ai_damage"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
