@@ -60,10 +60,12 @@ func vertical_movement(delta : float, direction : float) -> void:
 func detect_player() -> void:
 	var valid_angle : bool = false
 	player_detector.look_at(PlayerData.player_instance.global_position + (Vector2.UP * 48))
-	if not (absf(player_detector.rotation) < enemy_definition.max_detection_angle and facing_right or
-		absf(player_detector.rotation) > enemy_definition.max_detection_angle and not facing_right):
+	if absf(player_detector.rotation) < enemy_definition.max_detection_angle:
 		valid_angle = true
 		
+	
+	#print(player_detector.rotation)
+	print(valid_angle)
 	
 	if player_detector.get_collider() == PlayerData.player_instance and valid_angle:
 		player_detected = true
