@@ -10,6 +10,7 @@ var jump_cancel_multiple : float = .3333333
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity") * 1.34
 var max_fall_velocity : float = 900
 
+@onready var camera : Camera2D = %Camera2D
 @onready var spell_caster : SpellCaster = %SpellCaster
 @onready var animator : AnimationPlayer = %AnimationPlayer
 @onready var sprite : Sprite2D = %Sprite

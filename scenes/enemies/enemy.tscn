@@ -17,5 +17,4 @@ hit_from_inside = true
 
 [node name="HitBox" parent="." instance=ExtResource("3_g5od6")]
 unique_name_in_owner = true
-collision_layer = 0
 collision_mask = 2560

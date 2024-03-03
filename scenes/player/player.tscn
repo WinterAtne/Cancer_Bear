@@ -1,9 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://dftgjy2uuutmn"]
+[gd_scene load_steps=14 format=3 uid="uid://dftgjy2uuutmn"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cf76y"]
 [ext_resource type="Texture2D" uid="uid://dwlevovnd5ee8" path="res://scenes/player/belasarius.png" id="2_jlfbp"]
 [ext_resource type="PackedScene" uid="uid://dgcl4rb3rmkoa" path="res://scenes/spells/spell_caster.tscn" id="3_ajahj"]
 [ext_resource type="PackedScene" uid="uid://b5y48km7qnkcy" path="res://scenes/damage_system/hit_box.tscn" id="4_ckdkk"]
+[ext_resource type="Resource" uid="uid://b4vdob0exrv6e" path="res://scenes/spells/Cancer/cancer.tres" id="4_cvmsk"]
+[ext_resource type="Resource" uid="uid://cf3spk0jnxvds" path="res://scenes/spells/null_spell.tres" id="5_kkn1w"]
 [ext_resource type="Script" path="res://scenes/damage_system/health_profile.gd" id="5_wsuvx"]
 
 [sub_resource type="Animation" id="Animation_vfqvu"]
@@ -77,7 +79,6 @@ libraries = {
 }
 
 [node name="CollisionShape" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -32)
 shape = SubResource("CapsuleShape2D_k4c0t")
 
@@ -88,11 +89,11 @@ position_smoothing_enabled = true
 
 [node name="SpellCaster" parent="." instance=ExtResource("3_ajahj")]
 unique_name_in_owner = true
+spell_list = Array[Resource("res://scenes/spells/spell.gd")]([ExtResource("4_cvmsk"), ExtResource("5_kkn1w"), ExtResource("5_kkn1w"), ExtResource("5_kkn1w"), ExtResource("5_kkn1w")])
 
 [node name="HitBox" parent="." instance=ExtResource("4_ckdkk")]
 unique_name_in_owner = true
 position = Vector2(0, -32)
-collision_layer = 0
 collision_mask = 1536
 health_profile = SubResource("Resource_duj5k")
 
