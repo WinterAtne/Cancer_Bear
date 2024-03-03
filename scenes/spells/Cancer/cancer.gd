@@ -3,6 +3,7 @@ extends Node2D
 #Parameters
 @export var damage_profile : DamageProfile
 @export var time_between_effects : float = 0.75
+@export var particle_prefab : PackedScene
 
 #State
 enum State {
@@ -13,7 +14,7 @@ enum State {
 var state : State = State.searching
 
 func _ready():
-	position = (get_viewport().get_mouse_position() 
+	global_position = (get_viewport().get_mouse_position() 
 			+ PlayerData.player_instance.camera.global_position
 			- (get_viewport_rect().size / 2))
 	
@@ -40,10 +41,16 @@ func _on_area_2d_area_entered(area):
 
 func damage(infected : HitBox) -> void:
 	self.reparent.call_deferred(infected)
-	await get_tree().physics_frame
+	await get_tree().process_frame
 	var is_infected : bool = true
 	while(is_infected):
 		infected.damage_immediate(damage_profile, Vector2.ZERO)
+		var particles : GPUParticles2D = particle_prefab.instantiate()
+		add_child(particles)
+		await get_tree().process_frame
+		particles.position = global_position
+		particles.emitting = true
+		
 		await get_tree().create_timer(time_between_effects).timeout
 		
 	
