@@ -85,7 +85,6 @@ shape = SubResource("CapsuleShape2D_k4c0t")
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -64)
-position_smoothing_enabled = true
 
 [node name="SpellCaster" parent="." instance=ExtResource("3_ajahj")]
 unique_name_in_owner = true
