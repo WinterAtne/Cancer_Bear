@@ -64,9 +64,6 @@ func detect_player() -> void:
 		valid_angle = true
 		
 	
-	#print(player_detector.rotation)
-	print(valid_angle)
-	
 	if player_detector.get_collider() == PlayerData.player_instance and valid_angle:
 		player_detected = true
 		return
