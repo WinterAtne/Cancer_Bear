@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cqecak1mh1jv2"]
+[gd_scene load_steps=8 format=3 uid="uid://cqecak1mh1jv2"]
 
 [ext_resource type="PackedScene" uid="uid://dt0nuu2f2y5u7" path="res://scenes/enemies/enemy.tscn" id="1_hmv1i"]
 [ext_resource type="Script" path="res://scenes/enemies/robbed_people/robbed_person.gd" id="2_qj4dn"]
@@ -8,6 +8,10 @@
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_am3ep"]
 height = 52.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_awbnt"]
+radius = 15.0
+height = 58.0
 
 [node name="RobbedPerson" instance=ExtResource("1_hmv1i")]
 script = ExtResource("2_qj4dn")
@@ -21,6 +25,7 @@ texture = ExtResource("2_t0hy6")
 position = Vector2(0, -32)
 
 [node name="HitBox" parent="." index="2"]
+visible = false
 position = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
@@ -28,13 +33,14 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_am3ep")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="3"]
+visible = false
 position = Vector2(0, -26)
 shape = SubResource("CapsuleShape2D_am3ep")
 
 [node name="HurtBox" parent="." index="4" instance=ExtResource("5_imkx8")]
+position = Vector2(0, -26)
 collision_layer = 1024
 collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
-position = Vector2(0, -26)
-shape = SubResource("CapsuleShape2D_am3ep")
+shape = SubResource("CapsuleShape2D_awbnt")

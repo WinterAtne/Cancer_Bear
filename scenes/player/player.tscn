@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dftgjy2uuutmn"]
+[gd_scene load_steps=12 format=3 uid="uid://dftgjy2uuutmn"]
 
 [ext_resource type="Script" path="res://scenes/player/player.gd" id="1_cf76y"]
 [ext_resource type="Texture2D" uid="uid://dwlevovnd5ee8" path="res://scenes/player/belasarius.png" id="2_jlfbp"]
@@ -55,6 +55,10 @@ script = ExtResource("5_wsuvx")
 max_health = 12
 invulnerable_seconds = 0.5
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77uds"]
+radius = 12.0
+height = 64.0
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_cf76y")
 
@@ -87,11 +91,10 @@ unique_name_in_owner = true
 
 [node name="HitBox" parent="." instance=ExtResource("4_ckdkk")]
 unique_name_in_owner = true
+position = Vector2(0, -32)
 collision_layer = 0
 collision_mask = 1536
 health_profile = SubResource("Resource_duj5k")
 
-[node name="CollisionShape" type="CollisionShape2D" parent="HitBox"]
-visible = false
-position = Vector2(0, -32)
-shape = SubResource("CapsuleShape2D_k4c0t")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
+shape = SubResource("CapsuleShape2D_77uds")
