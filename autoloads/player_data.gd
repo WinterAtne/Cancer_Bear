@@ -1,6 +1,8 @@
 extends Node
 
 var player_instance : Player
+var height : int = 62
+var half_height : int = 31
 
 func set_player(player : Player) -> void:
 	if player_instance:

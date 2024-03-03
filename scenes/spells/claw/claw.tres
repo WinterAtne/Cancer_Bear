@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://ra3npusavy28"]
+
+[ext_resource type="PackedScene" uid="uid://bioiywld0piu5" path="res://scenes/spells/claw/claw.tscn" id="1_s4t4d"]
+[ext_resource type="Script" path="res://scenes/spells/spell.gd" id="1_t3kfw"]
+
+[resource]
+script = ExtResource("1_t3kfw")
+name = "Claw"
+aberration_cost = 0.0
+effect = ExtResource("1_s4t4d")

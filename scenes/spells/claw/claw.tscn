@@ -1,0 +1,24 @@
+[gd_scene load_steps=6 format=3 uid="uid://bioiywld0piu5"]
+
+[ext_resource type="Script" path="res://scenes/spells/claw/claw.gd" id="1_21ttw"]
+[ext_resource type="PackedScene" uid="uid://divvoqg2q1e68" path="res://scenes/damage_system/hurt_box.tscn" id="1_pqnrd"]
+[ext_resource type="Script" path="res://scenes/damage_system/damage_profile.gd" id="3_58r5i"]
+
+[sub_resource type="Resource" id="Resource_m0ful"]
+script = ExtResource("3_58r5i")
+damage = 2
+knockback = 1200.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouy24"]
+size = Vector2(90, 34)
+
+[node name="Claw" type="Node2D"]
+script = ExtResource("1_21ttw")
+seconds_to_delete = 0.2
+
+[node name="HurtBox" parent="." instance=ExtResource("1_pqnrd")]
+collision_layer = 2048
+damage_profile = SubResource("Resource_m0ful")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+shape = SubResource("RectangleShape2D_ouy24")

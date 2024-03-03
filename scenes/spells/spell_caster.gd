@@ -34,7 +34,7 @@ func use_spell(index : int) -> void:
 	
 	var spell : Node2D = spell_list[index].effect.instantiate()
 	get_parent().get_parent().add_child(spell)
-	spell.global_position = global_position
+	spell.global_position = global_position + (Vector2.UP * PlayerData.half_height)
 	give_aberration(spell_list[index].aberration_cost)
 	
 	spell_used.emit(spell_list[index])

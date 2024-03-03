@@ -39,7 +39,6 @@ shape = SubResource("CapsuleShape2D_am3ep")
 [node name="HurtBox" parent="." index="4" instance=ExtResource("5_imkx8")]
 position = Vector2(0, -26)
 collision_layer = 1024
-collision_mask = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
 shape = SubResource("CapsuleShape2D_awbnt")
