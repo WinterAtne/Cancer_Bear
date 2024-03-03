@@ -149,4 +149,5 @@ func die() -> void:
 func reset_player() -> void:
 	#This function is used when the player is respawned
 	hitbox.heal(99)
+	spell_caster.give_aberration(-99)
 	

@@ -38,12 +38,10 @@ func use_spell(index : int) -> void:
 	give_aberration(spell_list[index].aberration_cost)
 	
 	spell_used.emit(spell_list[index])
-	aberration_changed.emit(spell_list[index].aberration_cost)
 	
 
 func give_aberration(amount : float):
 	aberration -= amount
-	print(aberration)
 	#ensure's we don't have negative or above max aberration
 	if aberration > max_aberration:
 		aberration = max_aberration
