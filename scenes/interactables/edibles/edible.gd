@@ -17,7 +17,7 @@ func _ready():
 	
 
 func _do_interaction():
-	PlayerData.player_instance.spell_caster.give_aberration(data.aberration)
+	PlayerData.player_instance.spell_caster.give_aberration(-data.aberration)
 	
 	is_interactable = false
 	queue_free.call_deferred()
