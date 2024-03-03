@@ -2,6 +2,7 @@ extends CharacterBody2D
 class_name EnemyController
 
 @export var enemy_definition : Enemy
+var edible_prefab : PackedScene = preload("res://scenes/interactables/edibles/edible.tscn")
 
 #Parameters
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -75,6 +76,12 @@ func _take_damage(damage_profile : DamageProfile, health : int, normal : Vector2
 	
 
 func _die() -> void:
+	if enemy_definition.edible_data:
+		var corpse : Edible = edible_prefab.instantiate()
+		corpse.data = enemy_definition.edible_data
+		corpse.global_position = global_position
+		get_parent().add_child.call_deferred(corpse)
+	
 	queue_free()
 	pass
 	
