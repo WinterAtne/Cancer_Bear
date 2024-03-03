@@ -28,9 +28,7 @@ func _physics_process(delta) -> void:
 	
 
 func _on_area_2d_area_entered(area):
-	print("entered")
 	if area is HitBox:
-		print("hitbox")
 		if state == State.searching:
 			%Area2D.queue_free()
 			state = State.damaging
@@ -42,6 +40,7 @@ func _on_area_2d_area_entered(area):
 
 func damage(infected : HitBox) -> void:
 	self.reparent.call_deferred(infected)
+	await get_tree().physics_frame
 	var is_infected : bool = true
 	while(is_infected):
 		infected.damage_immediate(damage_profile, Vector2.ZERO)
