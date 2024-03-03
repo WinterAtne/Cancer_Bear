@@ -9,6 +9,7 @@ var aberration : float
 signal spell_list_changed(index : int, new_spell : Spell)
 signal spell_used(spell : Spell)
 signal spell_failled(spell : Spell)
+signal aberration_changed(amount : float)
 
 func _ready() -> void:
 	spell_list.resize(5)
@@ -37,4 +38,23 @@ func use_spell(index : int) -> void:
 	aberration -= spell_list[index].aberration_cost
 	
 	spell_used.emit(spell_list[index])
+	aberration_changed.emit(spell_list[index].aberration_cost)
+	
+	#make sure we don't have negative aberration
+	if aberration < 0:
+		aberration = 0
+		
+	
+
+func give_aberration(amount : float):
+	aberration += amount
+	#ensure's we don't have negative or above max aberration
+	if aberration > max_aberration:
+		aberration = max_aberration
+		
+	elif aberration < 0:
+		aberration = 0
+		
+	
+	aberration_changed.emit(amount)
 	
