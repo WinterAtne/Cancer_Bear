@@ -4,6 +4,7 @@ class_name HitBox
 @export var health_profile : Health_Profile
 
 signal hit(damage_profile : DamageProfile, health : int, normal : Vector2)
+signal healed(health : int)
 signal died
 signal invulnerable
 signal not_invulnerable
@@ -62,6 +63,8 @@ func heal(amount : int) -> void:
 	current_health += amount
 	if current_health > health_profile.max_health:
 		current_health = health_profile.max_health
+	
+	healed.emit(current_health)
 	
 
 func manage_invulnerable():

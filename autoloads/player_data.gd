@@ -17,3 +17,11 @@ func pause_player(function : Callable) -> void:
 	await get_tree().physics_frame
 	player_instance.set_physics_process(true)
 	
+
+func get_health() -> int:
+	return player_instance.hitbox.current_health
+	
+
+func get_aberration() -> float:
+	return player_instance.spell_caster.aberration
+	

@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_6txim")
-damage = 5
+damage = 4
 knockback = 600.0

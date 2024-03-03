@@ -9,7 +9,7 @@ var aberration : float
 signal spell_list_changed(index : int, new_spell : Spell)
 signal spell_used(spell : Spell)
 signal spell_failled(spell : Spell)
-signal aberration_changed(amount : float)
+signal aberration_changed(amount : float, total : float)
 
 func _ready() -> void:
 	spell_list.resize(5)
@@ -35,19 +35,15 @@ func use_spell(index : int) -> void:
 	var spell : Node2D = spell_list[index].effect.instantiate()
 	get_parent().get_parent().add_child(spell)
 	spell.global_position = global_position
-	aberration -= spell_list[index].aberration_cost
+	give_aberration(spell_list[index].aberration_cost)
 	
 	spell_used.emit(spell_list[index])
 	aberration_changed.emit(spell_list[index].aberration_cost)
 	
-	#make sure we don't have negative aberration
-	if aberration < 0:
-		aberration = 0
-		
-	
 
 func give_aberration(amount : float):
-	aberration += amount
+	aberration -= amount
+	print(aberration)
 	#ensure's we don't have negative or above max aberration
 	if aberration > max_aberration:
 		aberration = max_aberration
@@ -56,5 +52,5 @@ func give_aberration(amount : float):
 		aberration = 0
 		
 	
-	aberration_changed.emit(amount)
+	aberration_changed.emit(amount, aberration)
 	

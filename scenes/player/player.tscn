@@ -98,3 +98,5 @@ health_profile = SubResource("Resource_duj5k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 shape = SubResource("CapsuleShape2D_77uds")
+
+[connection signal="healed" from="HitBox" to="." method="heal"]

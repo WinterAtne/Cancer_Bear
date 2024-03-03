@@ -24,6 +24,7 @@ var facing_right : bool = true
 
 #Signal
 signal player_hit(damage : int, health : int)
+signal player_healed(health : int)
 signal player_died
 
 func _ready() -> void:
@@ -130,6 +131,10 @@ func cast_spells() -> void:
 	
 
 #Health & Damage
+func heal(health : int) -> void:
+	player_healed.emit(health)
+	
+
 func take_damage(damage_profile : DamageProfile, health : int, normal : Vector2) -> void:
 	player_hit.emit(damage_profile.damage, health)
 	velocity += normal * damage_profile.knockback

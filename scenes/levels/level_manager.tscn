@@ -6,4 +6,4 @@
 
 [node name="LevelManager" type="Node2D"]
 script = ExtResource("1_48uvl")
-levels = Array[Object]([ExtResource("2_7ulu4"), ExtResource("3_vev5x")])
+levels = Array[Resource("res://scenes/levels/level_definition.gd")]([ExtResource("2_7ulu4"), ExtResource("3_vev5x")])
