@@ -1,13 +1,14 @@
 extends Node2D
 class_name SpellCaster
 
-@export var max_aberration : int = 200
-var aberration : int
+@export var max_aberration : float = 6
+var aberration : float
 
 @export var spell_list : Array[Spell] = []
 
 signal spell_list_changed(index : int, new_spell : Spell)
 signal spell_used(spell : Spell)
+signal spell_failled(spell : Spell)
 
 func _ready() -> void:
 	spell_list.resize(5)
@@ -26,6 +27,7 @@ func set_spell(index : int, new_spell : Spell) -> void:
 
 func use_spell(index : int) -> void:
 	if (aberration <= 0):
+		spell_failled.emit()
 		return
 		
 	
