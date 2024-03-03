@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://cefeqv15hxtwu"]
+[gd_scene load_steps=5 format=3 uid="uid://cefeqv15hxtwu"]
 
 [ext_resource type="Texture2D" uid="uid://c80ynf7b5u722" path="res://assets/grassy_forest.png" id="2_7opp0"]
 [ext_resource type="PackedScene" uid="uid://cqecak1mh1jv2" path="res://scenes/enemies/robbed_people/robbed_person.tscn" id="2_nnei7"]
-[ext_resource type="PackedScene" uid="uid://waph8jowfhgi" path="res://scenes/interactables/edibles/edible.tscn" id="3_77x82"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yorio"]
 texture = ExtResource("2_7opp0")
@@ -513,9 +512,6 @@ terrain_set_0/terrain_0/name = "forest"
 terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 sources/0 = SubResource("TileSetAtlasSource_yorio")
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0a2bh"]
-radius = 18.0278
-
 [node name="DebugLevel2" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -525,11 +521,3 @@ layer_0/tile_data = PackedInt32Array(131065, 589824, 2, 131064, 589824, 2, 13106
 
 [node name="RobbedPerson" parent="." instance=ExtResource("2_nnei7")]
 position = Vector2(-312, -9)
-
-[node name="Edible" parent="." instance=ExtResource("3_77x82")]
-position = Vector2(-216, -39)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Edible"]
-shape = SubResource("CircleShape2D_0a2bh")
-
-[connection signal="body_entered" from="Edible" to="Edible" method="_interact"]

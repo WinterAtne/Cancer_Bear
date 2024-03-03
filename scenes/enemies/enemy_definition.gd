@@ -23,3 +23,7 @@ class_name Enemy
 # Stats
 @export_group("Stats")
 @export var health_profile : Health_Profile
+
+# Other
+@export_group("Other")
+@export var edible_data : EdibleData

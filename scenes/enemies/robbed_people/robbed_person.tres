@@ -1,7 +1,15 @@
-[gd_resource type="Resource" script_class="Enemy" load_steps=4 format=3 uid="uid://bk2vbp3y7otpw"]
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://bk2vbp3y7otpw"]
 
 [ext_resource type="Script" path="res://scenes/damage_system/health_profile.gd" id="1_380ky"]
+[ext_resource type="Script" path="res://scenes/interactables/edibles/edible_data.gd" id="1_i8fle"]
+[ext_resource type="Texture2D" uid="uid://47jr7urdo1ev" path="res://assets/robed_person.png" id="2_pggqj"]
 [ext_resource type="Script" path="res://scenes/enemies/enemy_definition.gd" id="2_shhei"]
+
+[sub_resource type="Resource" id="Resource_xtnvt"]
+script = ExtResource("1_i8fle")
+texture = ExtResource("2_pggqj")
+interaction_radius = 20
+aberration = 1
 
 [sub_resource type="Resource" id="Resource_3hcrb"]
 script = ExtResource("1_380ky")
@@ -18,3 +26,4 @@ can_fly = false
 detection_range = 600.0
 max_detection_angle = 1.571
 health_profile = SubResource("Resource_3hcrb")
+edible_data = SubResource("Resource_xtnvt")

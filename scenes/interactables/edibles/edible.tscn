@@ -1,7 +1,15 @@
-[gd_scene load_steps=3 format=3 uid="uid://waph8jowfhgi"]
+[gd_scene load_steps=4 format=3 uid="uid://waph8jowfhgi"]
 
 [ext_resource type="PackedScene" uid="uid://d3grc7b8ruewa" path="res://scenes/interactables/interactable.tscn" id="1_hq1i1"]
 [ext_resource type="Script" path="res://scenes/interactables/edibles/edible.gd" id="2_nrhag"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_8b6q2"]
+
 [node name="Edible" instance=ExtResource("1_hq1i1")]
 script = ExtResource("2_nrhag")
+data = null
+
+[node name="Shape" type="CollisionShape2D" parent="." index="0"]
+shape = SubResource("CircleShape2D_8b6q2")
+
+[node name="Sprite" type="Sprite2D" parent="." index="1"]
