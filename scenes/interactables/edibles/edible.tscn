@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=3 uid="uid://waph8jowfhgi"]
+
+[ext_resource type="PackedScene" uid="uid://d3grc7b8ruewa" path="res://scenes/interactables/interactable.tscn" id="1_hq1i1"]
+[ext_resource type="Script" path="res://scenes/interactables/edibles/edible.gd" id="2_nrhag"]
+
+[node name="Edible" instance=ExtResource("1_hq1i1")]
+script = ExtResource("2_nrhag")
