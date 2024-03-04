@@ -1,15 +1,17 @@
-[gd_scene load_steps=5 format=3 uid="uid://o7exvb45hpdj"]
+[gd_scene load_steps=7 format=3 uid="uid://o7exvb45hpdj"]
 
 [ext_resource type="PackedScene" uid="uid://dftgjy2uuutmn" path="res://scenes/player/player.tscn" id="1_seepl"]
 [ext_resource type="PackedScene" uid="uid://cygmmjo6j1rwl" path="res://scenes/levels/level_manager.tscn" id="2_ecqj0"]
 [ext_resource type="Resource" uid="uid://cxad7ua61v0m3" path="res://scenes/_debug/debug_level_2.tres" id="3_xe2sf"]
+[ext_resource type="Resource" uid="uid://cm4h1qf2meiuo" path="res://scenes/_debug/debug_level_0.tres" id="4_84iwv"]
 [ext_resource type="PackedScene" uid="uid://bca6qmnjanpwf" path="res://scenes/ui/hud/hud.tscn" id="4_li7xr"]
+[ext_resource type="Resource" uid="uid://uqojdx42lmha" path="res://scenes/_debug/debug_level_1.tres" id="5_xenc4"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_seepl")]
 
 [node name="LevelManager" parent="." instance=ExtResource("2_ecqj0")]
-levels = Array[Resource("res://scenes/levels/level_definition.gd")]([ExtResource("3_xe2sf")])
+levels = Array[Resource("res://scenes/levels/level_definition.gd")]([ExtResource("3_xe2sf"), ExtResource("4_84iwv"), ExtResource("5_xenc4")])
 
 [node name="HUD" parent="." instance=ExtResource("4_li7xr")]

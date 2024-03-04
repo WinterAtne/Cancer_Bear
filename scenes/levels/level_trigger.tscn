@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2y44u2w63nge"]
+
+[ext_resource type="Script" path="res://scenes/levels/level_trigger.gd" id="1_ggcfw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_68htk"]
+size = Vector2(144, 140)
+
+[node name="LevelTrigger" type="Area2D"]
+editor_description = "MUST BE THE DIRECT CHILD OF THE LEVEL!!!"
+script = ExtResource("1_ggcfw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_68htk")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
