@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk1macnmt6s18"]
+
+[ext_resource type="Script" path="res://scenes/spells/grab/grabbable.gd" id="1_v1ois"]
+
+[node name="Grabbable" type="Area2D"]
+editor_description = "This is added to anything that can be grabbed. Parent must be of type rigidbody or characterbody, and have a method paused(should_pause : bool) -> void."
+script = ExtResource("1_v1ois")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="area_exited" from="." to="." method="_on_area_exited"]

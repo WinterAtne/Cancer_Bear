@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://31ta0mjbmxao"]
+
+[ext_resource type="PackedScene" uid="uid://bltx7y6q108qt" path="res://scenes/spells/grab/grab.tscn" id="1_bu75l"]
+[ext_resource type="Script" path="res://scenes/spells/spell.gd" id="1_qi841"]
+
+[resource]
+script = ExtResource("1_qi841")
+name = "Grab"
+aberration_cost = 2.0
+effect = ExtResource("1_bu75l")

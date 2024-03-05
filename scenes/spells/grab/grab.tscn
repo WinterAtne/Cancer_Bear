@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bltx7y6q108qt"]
+
+[ext_resource type="Script" path="res://scenes/spells/grab/grab.gd" id="1_jtckk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_grmkc"]
+
+[node name="Grab" type="Area2D"]
+script = ExtResource("1_jtckk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_grmkc")

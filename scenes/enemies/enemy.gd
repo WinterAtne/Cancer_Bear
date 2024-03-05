@@ -107,3 +107,7 @@ func flip_on_direction():
 		scale.x = -1
 		
 	
+
+func pause(should_pause : bool) -> void:
+	paused = should_pause
+	
