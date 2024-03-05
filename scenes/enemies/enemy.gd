@@ -13,6 +13,8 @@ var target : Vector2
 var player_detected : bool
 var facing_right : bool = true
 
+var paused : bool = false
+
 func _ready() -> void:
 	player_detector.target_position = Vector2.RIGHT * enemy_definition.detection_range
 	%HitBox.health_profile = enemy_definition.health_profile
@@ -21,6 +23,9 @@ func _ready() -> void:
 	
 
 func _physics_process(delta) -> void:
+	if paused:
+		return
+	
 	var direction : Vector2 = position.direction_to(target)
 	
 	horizontal_movement(delta, direction.x)
