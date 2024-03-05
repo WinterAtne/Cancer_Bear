@@ -2,6 +2,7 @@ extends Area2D
 class_name HitBox
 
 @export var health_profile : Health_Profile
+@export var fall_damage_profile : DamageProfile
 
 signal hit(damage_profile : DamageProfile, health : int, normal : Vector2)
 signal healed(health : int)
@@ -15,6 +16,9 @@ var paused : bool = true
 var current_health : int = -1
 var health_is_ready : bool = false
 var can_take_damage : bool = true
+var is_rigid_body : bool = true
+
+var last_velocity : Vector2 = Vector2.ZERO
 
 func _ready() -> void:
 	owner.ready.connect(
@@ -28,6 +32,28 @@ func _ready() -> void:
 	
 	current_health = health_profile.max_health
 	health_is_ready = true
+	
+	if not (owner is RigidBody2D or owner is CharacterBody2D):
+		is_rigid_body = false
+		
+	
+
+func _physics_process(delta):
+	if is_rigid_body:
+		do_velocity_damage()
+		last_velocity = owner.velocity
+		
+	
+
+func do_velocity_damage() -> void:
+	var velocity_difference : float = last_velocity.length() - owner.velocity.length()
+	
+	if velocity_difference > health_profile.velocity_damage_threshold:
+		print(velocity_difference)
+		damage_immediate(fall_damage_profile, (last_velocity).normalized())
+		
+	
+	
 	
 
 func _on_area_entered(area) -> void:

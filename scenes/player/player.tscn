@@ -61,6 +61,7 @@ height = 34.0
 script = ExtResource("5_wsuvx")
 max_health = 12
 invulnerable_seconds = 0.5
+velocity_damage_threshold = 1000.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_77uds"]
 radius = 12.0

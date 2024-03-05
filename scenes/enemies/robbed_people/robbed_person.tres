@@ -15,6 +15,7 @@ aberration = 1
 script = ExtResource("1_380ky")
 max_health = 4
 invulnerable_seconds = -1.0
+velocity_damage_threshold = 700.0
 
 [resource]
 script = ExtResource("2_shhei")

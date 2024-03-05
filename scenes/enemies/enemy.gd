@@ -44,7 +44,14 @@ func horizontal_movement(delta : float, direction : float) -> void:
 
 func vertical_movement(delta : float, direction : float) -> void:
 	if not enemy_definition.can_fly:
-		velocity.y += gravity * delta
+		print(velocity.y)
+		if not is_on_floor():
+			velocity.y += gravity * delta
+			
+		else:
+			velocity.y = 0
+			
+		
 		return
 		
 	
