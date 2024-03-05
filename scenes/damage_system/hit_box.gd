@@ -49,7 +49,6 @@ func do_velocity_damage() -> void:
 	var velocity_difference : float = last_velocity.length() - owner.velocity.length()
 	
 	if velocity_difference > health_profile.velocity_damage_threshold:
-		print(velocity_difference)
 		damage_immediate(fall_damage_profile, (last_velocity).normalized())
 		
 	
