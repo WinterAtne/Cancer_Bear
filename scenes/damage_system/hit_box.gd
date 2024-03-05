@@ -52,8 +52,6 @@ func do_velocity_damage() -> void:
 		damage_immediate(fall_damage_profile, (last_velocity).normalized())
 		
 	
-	
-	
 
 func _on_area_entered(area) -> void:
 	if paused: await unpaused
