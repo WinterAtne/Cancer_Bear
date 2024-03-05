@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="DamageProfile" load_steps=2 format=3 uid="uid://l5yh3eqqauac"]
+
+[ext_resource type="Script" path="res://scenes/damage_system/damage_profile.gd" id="1_nxf14"]
+
+[resource]
+script = ExtResource("1_nxf14")
+damage = 4
+knockback = 0.0
