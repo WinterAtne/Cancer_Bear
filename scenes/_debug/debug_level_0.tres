@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="Level" load_steps=3 format=3 uid="uid://cm4h1qf2meiuo"]
-
-[ext_resource type="PackedScene" uid="uid://cukvqe5qd3ep4" path="res://scenes/_debug/debug_level_0.tscn" id="1_6jr84"]
-[ext_resource type="Script" path="res://scenes/levels/level_definition.gd" id="1_m8osx"]
-
-[resource]
-script = ExtResource("1_m8osx")
-scene = ExtResource("1_6jr84")
-player_position = Array[Vector2]([Vector2(0, 0), Vector2(5000, 20)])
