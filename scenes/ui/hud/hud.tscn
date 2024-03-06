@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://ey7kr3xvwkdb" path="res://scenes/ui/hud/health_progress.png" id="1_2cybi"]
 [ext_resource type="Texture2D" uid="uid://cgmgx3kjuxbeo" path="res://scenes/ui/hud/health_over.png" id="1_5hw7y"]
 [ext_resource type="Texture2D" uid="uid://dttmsxi66rf8o" path="res://scenes/ui/hud/aberration_under.png" id="1_kx3qu"]
-[ext_resource type="Texture2D" uid="uid://b8i3lg6s5d4r7" path="res://scenes/ui/hud/health_under.png" id="1_n8o1g"]
+[ext_resource type="Texture2D" uid="uid://bgo36yo3acag6" path="res://scenes/ui/hud/health_under.png" id="1_n8o1g"]
 [ext_resource type="Script" path="res://scenes/ui/hud/hud.gd" id="1_twwoe"]
 [ext_resource type="Texture2D" uid="uid://8in2q3bi4r2t" path="res://scenes/ui/hud/aberration_progress.png" id="2_dckmn"]
 

@@ -11,9 +11,11 @@ func adjust_health(_damage_profile : DamageProfile, health : int, _normal : Vect
 	
 
 func set_health(health : int) -> void:
+	$VBoxContainer/HBoxContainer/HealthBar.max_value = PlayerData.player_instance.hitbox.health_profile.max_health
 	$VBoxContainer/HBoxContainer/HealthBar.value = health
 	
 
 func adjust_aberration(amount : float, total : float) -> void:
+	$VBoxContainer/HBoxContainer/HealthBar.max_value = PlayerData.player_instance.spell_caster.max_aberration
 	$VBoxContainer/HBoxContainer/AberrationBar.value = total
 	
