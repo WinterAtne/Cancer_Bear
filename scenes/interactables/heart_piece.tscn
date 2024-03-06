@@ -1,0 +1,42 @@
+[gd_scene load_steps=8 format=3 uid="uid://0mvxuwqmyj5c"]
+
+[ext_resource type="Texture2D" uid="uid://ddmlod3r2olpm" path="res://assets/heart_piece.png" id="1_2ya8e"]
+[ext_resource type="Texture2D" uid="uid://od74jnm3kqgr" path="res://assets/flower_particle.png" id="2_7bqw6"]
+
+[sub_resource type="Curve" id="Curve_k62tw"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.343529, 0.715879), -3.39676, -3.39676, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_fg2tp"]
+curve = SubResource("Curve_k62tw")
+
+[sub_resource type="Curve" id="Curve_23hno"]
+_data = [Vector2(0, 0.011236), 0.0, 0.0, 0, 0, Vector2(0.498856, 0.679775), 3.478, 3.478, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_73rrf"]
+curve = SubResource("Curve_23hno")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_seovp"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 10.0
+direction = Vector3(0, -1, 0)
+spread = 30.0
+initial_velocity_min = 4.42
+initial_velocity_max = 57.52
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_fg2tp")
+turbulence_enabled = true
+turbulence_noise_scale = 3.957
+turbulence_influence_over_life = SubResource("CurveTexture_73rrf")
+
+[node name="HeartPiece" type="Sprite2D"]
+texture = ExtResource("1_2ya8e")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(0.54902, 0.278431, 0.247059, 1)
+position = Vector2(0, 5)
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_seovp")
+texture = ExtResource("2_7bqw6")
