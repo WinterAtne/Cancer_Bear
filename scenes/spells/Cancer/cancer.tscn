@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dveevng3m5d3d"]
+[gd_scene load_steps=10 format=3 uid="uid://dveevng3m5d3d"]
 
 [ext_resource type="Script" path="res://scenes/spells/Cancer/cancer.gd" id="1_wff0c"]
 [ext_resource type="Script" path="res://scenes/damage_system/damage_profile.gd" id="2_blnpi"]
 [ext_resource type="PackedScene" uid="uid://5f4axp1b6ksv" path="res://scenes/spells/Cancer/cancer_particles.tscn" id="3_ael15"]
+[ext_resource type="Texture2D" uid="uid://od74jnm3kqgr" path="res://assets/flower_particle.png" id="4_wkovg"]
 
 [sub_resource type="Resource" id="Resource_2bc4h"]
 script = ExtResource("2_blnpi")
@@ -10,6 +11,22 @@ damage = 1
 knockback = 0.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_aad13"]
+
+[sub_resource type="Curve" id="Curve_rk432"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_2tdtj"]
+curve = SubResource("Curve_rk432")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_yq57m"]
+particle_flag_disable_z = true
+direction = Vector3(1, 1, 0)
+spread = 180.0
+initial_velocity_min = 20.0
+initial_velocity_max = 40.0
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_2tdtj")
 
 [node name="Cancer" type="Node2D"]
 script = ExtResource("1_wff0c")
@@ -23,5 +40,14 @@ collision_mask = 2048
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("CircleShape2D_aad13")
+
+[node name="CancerParticles" type="GPUParticles2D" parent="."]
+self_modulate = Color(0.207843, 0.321569, 0.168627, 1)
+top_level = true
+amount = 14
+process_material = SubResource("ParticleProcessMaterial_yq57m")
+texture = ExtResource("4_wkovg")
+lifetime = 0.6
+randomness = 1.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
