@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://lpgikpuqq40j"]
+
+[ext_resource type="TileSet" uid="uid://dpybicg748sum" path="res://scenes/levels/tile_set.tres" id="1_dh11f"]
+
+[node name="DefaultTileMap" type="TileMap"]
+tile_set = ExtResource("1_dh11f")
+format = 2
+layer_0/name = "Background"
+layer_0/modulate = Color(0.364706, 0.364706, 0.364706, 1)
+layer_1/name = "back_debris"
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "fore_debris"
+layer_2/tile_data = PackedInt32Array()
+layer_3/name = "Foreground"
+layer_3/tile_data = PackedInt32Array()
