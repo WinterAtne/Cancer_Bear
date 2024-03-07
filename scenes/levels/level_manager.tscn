@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cygmmjo6j1rwl"]
+[gd_scene load_steps=3 format=3 uid="uid://cygmmjo6j1rwl"]
 
 [ext_resource type="Script" path="res://scenes/levels/level_manager.gd" id="1_48uvl"]
+[ext_resource type="Resource" uid="uid://b7bh2xgh7xvm3" path="res://scenes/_debug/debug_level.tres" id="2_qkgj2"]
 
 [node name="LevelManager" type="Node2D"]
 script = ExtResource("1_48uvl")
+levels = Array[Resource("res://scenes/levels/level_definition.gd")]([ExtResource("2_qkgj2")])
