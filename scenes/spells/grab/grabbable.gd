@@ -56,12 +56,16 @@ func _physics_process(delta) -> void:
 			
 		
 	
-	if is_grabbed:
+	if is_grabbed and characterbody:
 		var direction = direction_to_mouse()
 		var adjusted_speed = (distance_to_mouse() / SPEED)
 		owner.velocity = owner.velocity.move_toward(direction * SPEED, delta * ACCELERATION)
 		owner.move_and_slide()
 		
+	elif is_grabbed and rigidbody:
+		var direction = direction_to_mouse()
+		var adjusted_speed = (distance_to_mouse() / SPEED)
+		owner.linear_velocity = owner.linear_velocity.move_toward(direction * SPEED, delta * ACCELERATION)
 		
 	
 	
