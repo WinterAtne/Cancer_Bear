@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="Enemy" load_steps=7 format=3 uid="uid://b7enxjr5a0guc"]
+
+[ext_resource type="Script" path="res://scenes/enemies/enemy_definition.gd" id="1_kitkw"]
+[ext_resource type="Script" path="res://scenes/interactables/edibles/edible_data.gd" id="1_pj0ff"]
+[ext_resource type="Texture2D" uid="uid://c13rnv1fwlnun" path="res://assets/robed_child.png" id="2_uwchg"]
+[ext_resource type="Script" path="res://scenes/damage_system/health_profile.gd" id="3_mjo3n"]
+
+[sub_resource type="Resource" id="Resource_lw3cr"]
+script = ExtResource("1_pj0ff")
+texture = ExtResource("2_uwchg")
+interaction_radius = 20
+aberration = 1
+
+[sub_resource type="Resource" id="Resource_ccjbs"]
+script = ExtResource("3_mjo3n")
+max_health = 2
+invulnerable_seconds = -1.0
+velocity_damage_threshold = 650.0
+
+[resource]
+script = ExtResource("1_kitkw")
+name = "Robbed Child"
+speed = 600.0
+acceleration = 2000.0
+navigation_success_distance = 15.0
+can_fly = false
+detection_range = 200.0
+max_detection_angle = 0.393
+health_profile = SubResource("Resource_ccjbs")
+edible_data = SubResource("Resource_lw3cr")
