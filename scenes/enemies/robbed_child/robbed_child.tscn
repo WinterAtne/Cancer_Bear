@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=3 uid="uid://doynrqudxs0fn"]
+[gd_scene load_steps=12 format=3 uid="uid://doynrqudxs0fn"]
 
 [ext_resource type="PackedScene" uid="uid://dt0nuu2f2y5u7" path="res://scenes/enemies/enemy.tscn" id="1_fonhy"]
 [ext_resource type="Texture2D" uid="uid://c13rnv1fwlnun" path="res://assets/robed_child.png" id="2_80064"]
 [ext_resource type="Script" path="res://scenes/enemies/robbed_child/robbed_child.gd" id="2_v1nu0"]
 [ext_resource type="Resource" uid="uid://b7enxjr5a0guc" path="res://scenes/enemies/robbed_child/robbed_child.tres" id="3_8tfo6"]
 [ext_resource type="PackedScene" uid="uid://bk1macnmt6s18" path="res://scenes/spells/grab/grabbable.tscn" id="3_ctdfk"]
+[ext_resource type="PackedScene" uid="uid://dydpjdpmuaoa6" path="res://scenes/enemies/blood.tscn" id="3_x1hsi"]
 [ext_resource type="PackedScene" uid="uid://divvoqg2q1e68" path="res://scenes/damage_system/hurt_box.tscn" id="4_aw7dm"]
 [ext_resource type="Script" path="res://scenes/damage_system/damage_profile.gd" id="5_yejfo"]
 
@@ -22,10 +23,11 @@ knockback = 300.0
 
 [node name="RobbedChild" instance=ExtResource("1_fonhy")]
 script = ExtResource("2_v1nu0")
+blood_effect = ExtResource("3_x1hsi")
 enemy_definition = ExtResource("3_8tfo6")
 
 [node name="Sprite2D" parent="." index="0"]
-position = Vector2(0, -32)
+position = Vector2(0, -16)
 texture = ExtResource("2_80064")
 
 [node name="PlayerDetector" parent="." index="1"]

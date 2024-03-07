@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=3 uid="uid://dydpjdpmuaoa6"]
+
+[ext_resource type="Texture2D" uid="uid://od74jnm3kqgr" path="res://assets/flower_particle.png" id="1_bes8l"]
+[ext_resource type="Script" path="res://scenes/enemies/blood.gd" id="2_uo4h8"]
+
+[sub_resource type="Curve" id="Curve_i1a0i"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_wawty"]
+curve = SubResource("Curve_i1a0i")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_owfpx"]
+particle_flag_disable_z = true
+spread = 180.0
+initial_velocity_min = 200.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 98, 0)
+alpha_curve = SubResource("CurveTexture_wawty")
+
+[node name="Blood" type="GPUParticles2D"]
+modulate = Color(0.4, 0.168627, 0.0901961, 1)
+emitting = false
+amount = 14
+process_material = SubResource("ParticleProcessMaterial_owfpx")
+texture = ExtResource("1_bes8l")
+one_shot = true
+explosiveness = 1.0
+script = ExtResource("2_uo4h8")
