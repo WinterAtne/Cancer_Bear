@@ -12,7 +12,7 @@ damage = 2
 knockback = 1200.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ouy24"]
-size = Vector2(63, 34)
+size = Vector2(38, 34)
 
 [sub_resource type="Curve" id="Curve_0jpy2"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.496471, 0.286798), -2.0536, -2.0536, 0, 0, Vector2(1, 0), -0.4179, 0.0, 0, 0]
@@ -44,7 +44,7 @@ seconds_to_delete = 0.2
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 show_behind_parent = true
-position = Vector2(-40, 0)
+position = Vector2(-22, 0)
 emitting = false
 amount = 15
 process_material = SubResource("ParticleProcessMaterial_xemxs")

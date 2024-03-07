@@ -8,6 +8,6 @@ func _ready():
 		
 	
 	await get_tree().process_frame # we wait to make sure the reparent happens
-	position = position + ((1 if PlayerData.player_instance.facing_right else -1) * Vector2.RIGHT * 48)
+	position = position + ((1 if PlayerData.player_instance.facing_right else -1) * Vector2.RIGHT * 24)
 	super._ready()
 	
