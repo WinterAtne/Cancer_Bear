@@ -1,23 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://cqecak1mh1jv2"]
+[gd_scene load_steps=8 format=3 uid="uid://cqecak1mh1jv2"]
 
 [ext_resource type="PackedScene" uid="uid://dt0nuu2f2y5u7" path="res://scenes/enemies/enemy.tscn" id="1_hmv1i"]
 [ext_resource type="Script" path="res://scenes/enemies/robbed_people/robbed_person.gd" id="2_qj4dn"]
 [ext_resource type="Texture2D" uid="uid://47jr7urdo1ev" path="res://assets/robed_person.png" id="2_t0hy6"]
 [ext_resource type="Resource" uid="uid://bk2vbp3y7otpw" path="res://scenes/enemies/robbed_people/robbed_person.tres" id="3_becgt"]
 [ext_resource type="PackedScene" uid="uid://dydpjdpmuaoa6" path="res://scenes/enemies/blood.tscn" id="3_eumnf"]
-[ext_resource type="PackedScene" uid="uid://divvoqg2q1e68" path="res://scenes/damage_system/hurt_box.tscn" id="5_imkx8"]
 [ext_resource type="PackedScene" uid="uid://bk1macnmt6s18" path="res://scenes/spells/grab/grabbable.tscn" id="6_sk2rd"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_am3ep"]
 height = 52.0
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_awbnt"]
-radius = 15.0
-height = 58.0
-
 [node name="RobbedPerson" instance=ExtResource("1_hmv1i")]
 script = ExtResource("2_qj4dn")
 blood_effect = ExtResource("3_eumnf")
+desired_distance = 450.0
+minimum_distance = 150.0
+allowed_y_distance = 200.0
 enemy_definition = ExtResource("3_becgt")
 
 [node name="Sprite2D" parent="." index="0"]
@@ -39,14 +37,7 @@ visible = false
 position = Vector2(0, -26)
 shape = SubResource("CapsuleShape2D_am3ep")
 
-[node name="HurtBox" parent="." index="4" instance=ExtResource("5_imkx8")]
-position = Vector2(0, -26)
-collision_layer = 1024
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
-shape = SubResource("CapsuleShape2D_awbnt")
-
-[node name="Grabbable" parent="." index="5" instance=ExtResource("6_sk2rd")]
+[node name="Grabbable" parent="." index="4" instance=ExtResource("6_sk2rd")]
 position = Vector2(0, -32)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Grabbable" index="0"]

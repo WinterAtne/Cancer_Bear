@@ -1,15 +1,30 @@
 extends EnemyController
 
 @export var blood_effect : PackedScene
+@export var desired_distance : float = 450
+@export var minimum_distance : float = 150
+@export var allowed_y_distance : float = 200
 
 func _physics_process(delta):
-	if player_detected:
-		target = PlayerData.player_instance.position
-		
-	
-	
 	flip_on_direction()
 	super._physics_process(delta)
+	
+	if not player_detected:
+		return
+	
+	if absf(position.y - PlayerData.player_instance.position.y) > allowed_y_distance:
+		return
+		
+	
+	if position.distance_to(PlayerData.player_instance.position) < minimum_distance:
+		var player_direction : Vector2 = position.direction_to(PlayerData.player_instance.position)
+		target = (PlayerData.player_instance.position - 
+			(player_direction.x * desired_distance * Vector2.RIGHT))
+		
+	elif target.distance_to(PlayerData.player_instance.position) < desired_distance:
+		target = position
+		
+	
 	
 
 func _take_damage(damage_profile : DamageProfile, health : int, normal : Vector2) -> void:
