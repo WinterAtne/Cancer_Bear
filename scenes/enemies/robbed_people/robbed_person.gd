@@ -46,8 +46,11 @@ func _on_player_detected() -> void:
 		var instance_spear : RigidBody2D = spear.instantiate()
 		get_parent().add_child(instance_spear)
 		instance_spear.global_position = global_position + (Vector2.UP * 64)
-		instance_spear.linear_velocity = (position.direction_to(PlayerData.player_instance.position) *
-			spear_speed)
+		instance_spear.linear_velocity = (position.direction_to(PlayerData.player_instance.position 
+			+ (PlayerData.height * Vector2.UP)) 
+			* spear_speed)
+		
+		instance_spear.rotate(get_angle_to(PlayerData.player_instance.position)) 
 		
 		await attack_timer.timeout
 		
