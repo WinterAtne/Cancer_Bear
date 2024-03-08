@@ -1,0 +1,44 @@
+[gd_scene load_steps=11 format=3 uid="uid://cw7cx55lxgiyq"]
+
+[ext_resource type="PackedScene" uid="uid://dt0nuu2f2y5u7" path="res://scenes/enemies/enemy.tscn" id="1_kvim4"]
+[ext_resource type="Resource" uid="uid://b0hescv7q3fbu" path="res://scenes/enemies/hawk/hawk.tres" id="2_ll8pi"]
+[ext_resource type="Texture2D" uid="uid://chhxo67jh7duc" path="res://assets/hawk.png" id="2_m0i3a"]
+[ext_resource type="Script" path="res://scenes/enemies/hawk/hawk.gd" id="2_u0h18"]
+[ext_resource type="PackedScene" uid="uid://dydpjdpmuaoa6" path="res://scenes/enemies/blood.tscn" id="3_b3d74"]
+[ext_resource type="PackedScene" uid="uid://bk1macnmt6s18" path="res://scenes/spells/grab/grabbable.tscn" id="3_xu6mh"]
+[ext_resource type="Script" path="res://scenes/damage_system/hurt_box.gd" id="7_imv4u"]
+[ext_resource type="Script" path="res://scenes/damage_system/damage_profile.gd" id="8_k6v7s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gf8nk"]
+radius = 16.2788
+
+[sub_resource type="Resource" id="Resource_m0t5q"]
+script = ExtResource("8_k6v7s")
+damage = 5
+knockback = 800.0
+
+[node name="Hawk" instance=ExtResource("1_kvim4")]
+script = ExtResource("2_u0h18")
+blood_effect = ExtResource("3_b3d74")
+enemy_definition = ExtResource("2_ll8pi")
+
+[node name="Sprite2D" parent="." index="0"]
+texture = ExtResource("2_m0i3a")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox" index="0"]
+shape = SubResource("CircleShape2D_gf8nk")
+
+[node name="Grabbable" parent="." index="4" instance=ExtResource("3_xu6mh")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Grabbable" index="0"]
+visible = false
+shape = SubResource("CircleShape2D_gf8nk")
+
+[node name="HurtBox" type="Area2D" parent="." index="5"]
+collision_layer = 1024
+collision_mask = 0
+script = ExtResource("7_imv4u")
+damage_profile = SubResource("Resource_m0t5q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox" index="0"]
+shape = SubResource("CircleShape2D_gf8nk")
