@@ -7,6 +7,7 @@ var edible_prefab : PackedScene = preload("res://scenes/interactables/edibles/ed
 #Parameters
 var gravity : float = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var player_detector : RayCast2D = %PlayerDetector
+@onready var fall_allowed_check : RayCast2D = %FallCheck
 
 #State
 var target : Vector2
@@ -20,6 +21,8 @@ func _ready() -> void:
 	%HitBox.health_profile = enemy_definition.health_profile
 	%HitBox.hit.connect(_take_damage.bind())
 	%HitBox.died.connect(_die.bind())
+	
+	fall_allowed_check.target_position.y = enemy_definition.max_fall_distance
 	
 
 func _physics_process(delta) -> void:
@@ -44,6 +47,16 @@ func horizontal_movement(delta : float, direction : float) -> void:
 		
 	else:
 		velocity.x = move_toward(velocity.x, 0, delta * enemy_definition.acceleration)
+		
+	
+	if enemy_definition.can_fly:
+		return
+	
+	fall_allowed_check.global_position = global_position + (velocity.x * Vector2.RIGHT)
+	fall_allowed_check.force_raycast_update()
+	
+	if not fall_allowed_check.get_collider():
+		velocity.x = 0
 		
 	
 

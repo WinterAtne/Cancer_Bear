@@ -5,6 +5,7 @@ extends EnemyController
 @export var minimum_distance : float = 150
 @export var allowed_y_distance : float = 200
 
+
 func _physics_process(delta):
 	flip_on_direction()
 	super._physics_process(delta)

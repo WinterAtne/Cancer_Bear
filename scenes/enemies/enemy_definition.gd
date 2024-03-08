@@ -13,6 +13,7 @@ class_name Enemy
 @export var acceleration : float = 2000
 @export var navigation_success_distance : float = 15 # you might need to change this:
 	#for high speed low acceleration creatures
+@export var max_fall_distance : float = 200
 @export var can_fly : bool = false
 
 # Player Detection Parameters
