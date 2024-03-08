@@ -9,6 +9,7 @@ name = "Good Person"
 speed = 300.0
 acceleration = 2000.0
 navigation_success_distance = 15.0
+max_fall_distance = 200.0
 can_fly = false
 detection_range = 200.0
 max_detection_angle = 0.785398

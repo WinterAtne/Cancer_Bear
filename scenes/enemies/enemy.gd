@@ -89,10 +89,15 @@ func detect_player() -> void:
 		valid_angle = true
 		
 	
-	if player_detector.get_collider() == PlayerData.player_instance and valid_angle:
+	if player_detector.get_collider() == PlayerData.player_instance and valid_angle and not player_detected:
 		player_detected = true
+		_on_player_detected()
 		return
 		
+	
+
+func _on_player_detected() -> void:
+	pass
 	
 
 func _take_damage(damage_profile : DamageProfile, health : int, normal : Vector2) -> void:

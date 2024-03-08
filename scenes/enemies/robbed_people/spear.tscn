@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://dm7g1i5ojpsd6"]
+
+[ext_resource type="Script" path="res://misc_scripts/delete_after_seconds.gd" id="1_pxo11"]
+[ext_resource type="Texture2D" uid="uid://da2wgny1ol5pc" path="res://assets/spear.png" id="1_tki7w"]
+[ext_resource type="PackedScene" uid="uid://divvoqg2q1e68" path="res://scenes/damage_system/hurt_box.tscn" id="2_6h106"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wexop"]
+radius = 4.12311
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7gxgh"]
+size = Vector2(14, 2)
+
+[node name="Spear" type="RigidBody2D"]
+script = ExtResource("1_pxo11")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_tki7w")
+
+[node name="HurtBox" parent="." instance=ExtResource("2_6h106")]
+collision_layer = 1024
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(-28, 0)
+shape = SubResource("CircleShape2D_wexop")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-22, 0)
+shape = SubResource("RectangleShape2D_7gxgh")

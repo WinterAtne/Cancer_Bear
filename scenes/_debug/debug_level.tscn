@@ -12,3 +12,4 @@ layer_3/tile_data = PackedInt32Array(65553, 720896, 0, 65552, 655360, 0, 65551, 
 
 [node name="RobbedPerson" parent="." instance=ExtResource("2_mncm5")]
 position = Vector2(173, -377)
+spear_speed = 800.0
