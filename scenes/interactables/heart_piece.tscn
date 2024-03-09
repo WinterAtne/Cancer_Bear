@@ -1,7 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://0mvxuwqmyj5c"]
+[gd_scene load_steps=11 format=3 uid="uid://0mvxuwqmyj5c"]
 
 [ext_resource type="Texture2D" uid="uid://ddmlod3r2olpm" path="res://assets/heart_piece.png" id="1_2ya8e"]
 [ext_resource type="Texture2D" uid="uid://od74jnm3kqgr" path="res://assets/flower_particle.png" id="2_7bqw6"]
+[ext_resource type="PackedScene" uid="uid://d3grc7b8ruewa" path="res://scenes/interactables/interactable.tscn" id="3_oq4bk"]
+[ext_resource type="Script" path="res://scenes/interactables/heart_piece.gd" id="4_myx5h"]
 
 [sub_resource type="Curve" id="Curve_k62tw"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.343529, 0.715879), -3.39676, -3.39676, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -31,6 +33,9 @@ turbulence_enabled = true
 turbulence_noise_scale = 3.957
 turbulence_influence_over_life = SubResource("CurveTexture_73rrf")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5qf0"]
+radius = 23.5372
+
 [node name="HeartPiece" type="Sprite2D"]
 texture = ExtResource("1_2ya8e")
 
@@ -40,3 +45,9 @@ position = Vector2(0, 5)
 amount = 16
 process_material = SubResource("ParticleProcessMaterial_seovp")
 texture = ExtResource("2_7bqw6")
+
+[node name="Interactable" parent="." instance=ExtResource("3_oq4bk")]
+script = ExtResource("4_myx5h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_o5qf0")

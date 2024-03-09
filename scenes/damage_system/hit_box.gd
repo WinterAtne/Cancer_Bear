@@ -101,3 +101,8 @@ func manage_invulnerable():
 		can_take_damage = true#Changed after signal so state elsewhere can communicate to the player
 		
 	
+
+func increase_max_health() -> void:
+	health_profile.max_health += 0.25
+	heal(99)
+	

@@ -60,7 +60,7 @@ height = 34.0
 
 [sub_resource type="Resource" id="Resource_u14w6"]
 script = ExtResource("5_wsuvx")
-max_health = 12
+max_health = 12.0
 invulnerable_seconds = 0.25
 velocity_damage_threshold = 1000.0
 
