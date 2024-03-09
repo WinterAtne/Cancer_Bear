@@ -25,6 +25,9 @@ func set_spell(index : int, new_spell : Spell) -> void:
 	spell_list[index] = new_spell
 	spell_list_changed.emit(index, new_spell)
 	
+	for s in spell_list:
+		print(s.name)
+	
 
 func use_spell(index : int) -> void:
 	if (aberration <= 0):

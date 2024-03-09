@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Spell" load_steps=3 format=3 uid="uid://b4vdob0exrv6e"]
+[gd_resource type="Resource" script_class="Spell" load_steps=4 format=3 uid="uid://b4vdob0exrv6e"]
 
 [ext_resource type="Script" path="res://scenes/spells/spell.gd" id="1_2ymnk"]
 [ext_resource type="PackedScene" uid="uid://dveevng3m5d3d" path="res://scenes/spells/Cancer/cancer.tscn" id="1_hxqp1"]
+[ext_resource type="Texture2D" uid="uid://od74jnm3kqgr" path="res://assets/flower_particle.png" id="2_7bl3g"]
 
 [resource]
 script = ExtResource("1_2ymnk")
 name = "Cancer"
+icon = ExtResource("2_7bl3g")
 aberration_cost = 2.0
 effect = ExtResource("1_hxqp1")
+slot_num = 4

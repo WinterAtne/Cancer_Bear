@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvhv228sfengh"]
+
+[ext_resource type="PackedScene" uid="uid://d3grc7b8ruewa" path="res://scenes/interactables/interactable.tscn" id="1_am0ey"]
+[ext_resource type="Script" path="res://scenes/interactables/spell_pickup.gd" id="2_c7f72"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hmp1q"]
+radius = 38.0132
+
+[node name="SpellPickup" type="Sprite2D"]
+
+[node name="Interactable" parent="." instance=ExtResource("1_am0ey")]
+script = ExtResource("2_c7f72")
+spell = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable"]
+shape = SubResource("CircleShape2D_hmp1q")
