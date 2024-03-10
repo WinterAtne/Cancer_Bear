@@ -14,11 +14,11 @@ height = 52.0
 [node name="RobbedPerson" instance=ExtResource("1_hmv1i")]
 script = ExtResource("2_qj4dn")
 blood_effect = ExtResource("3_eumnf")
-desired_distance = 450.0
-minimum_distance = 150.0
-allowed_y_distance = 200.0
+desired_distance = null
+minimum_distance = null
+allowed_y_distance = null
 spear = ExtResource("4_qnu2b")
-spear_speed = 800.0
+spear_speed = null
 enemy_definition = ExtResource("3_becgt")
 
 [node name="Sprite2D" parent="." index="0"]

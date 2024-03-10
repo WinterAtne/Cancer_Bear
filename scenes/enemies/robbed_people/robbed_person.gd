@@ -11,12 +11,14 @@ extends EnemyController
 @onready var attack_timer : Timer = $AttackTimer
 
 func _physics_process(delta):
-	flip_on_direction()
 	super._physics_process(delta)
 	
 	if not player_detected:
+		flip_on_direction()
 		return
 		
+	
+	flip_towards_player()
 	
 	if absf(position.y - PlayerData.player_instance.position.y) > allowed_y_distance:
 		return

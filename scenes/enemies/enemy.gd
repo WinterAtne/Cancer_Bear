@@ -126,6 +126,17 @@ func flip_on_direction():
 		
 	
 
+func flip_towards_player() -> void:
+	if PlayerData.player_instance.position.x - position.x < 0 and facing_right:
+		facing_right = false
+		scale.x = -1
+		
+	elif PlayerData.player_instance.position.x - position.x > 0 and not facing_right:
+		facing_right = true
+		scale.x = -1
+		
+	
+
 func pause(should_pause : bool) -> void:
 	paused = should_pause
 	
