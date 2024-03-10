@@ -85,6 +85,9 @@ func vertical_movement(delta : float, direction : float) -> void:
 func detect_player() -> void:
 	var valid_angle : bool = false
 	player_detector.look_at(PlayerData.player_instance.global_position + (Vector2.UP * 48))
+	if player_detector.rotation > 2 * PI:
+		player_detector.rotation = 0
+	
 	if absf(player_detector.rotation) < enemy_definition.max_detection_angle:
 		valid_angle = true
 		
