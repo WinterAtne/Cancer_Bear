@@ -56,7 +56,7 @@ func horizontal_movement(delta : float, direction : float) -> void:
 	fall_allowed_check.force_raycast_update()
 	
 	if not fall_allowed_check.get_collider():
-		velocity.x = 0
+		velocity.x = move_toward(velocity.x, 0, delta * enemy_definition.acceleration)
 		
 	
 
@@ -101,6 +101,7 @@ func _on_player_detected() -> void:
 	
 
 func _take_damage(damage_profile : DamageProfile, health : int, normal : Vector2) -> void:
+	velocity += normal * damage_profile.knockback
 	pass
 	
 

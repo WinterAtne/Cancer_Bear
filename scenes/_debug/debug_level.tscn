@@ -14,10 +14,6 @@ layer_3/tile_data = PackedInt32Array(65553, 720896, 0, 65552, 655360, 0, 65551, 
 
 [node name="RobbedPerson" parent="." instance=ExtResource("3_yudae")]
 position = Vector2(256, -416)
-desired_distance = null
-minimum_distance = null
-allowed_y_distance = null
-spear_speed = null
 
 [node name="SpellPickup" parent="." instance=ExtResource("3_we426")]
 position = Vector2(271, -14)

@@ -13,6 +13,7 @@ func _physics_process(delta):
 	
 
 func _take_damage(damage_profile : DamageProfile, health : int, normal : Vector2) -> void:
+	super._take_damage(damage_profile, health, normal)
 	var effect = blood_effect.instantiate()
 	get_parent().add_child(effect)
 	effect.global_position = global_position
