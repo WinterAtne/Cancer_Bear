@@ -49,6 +49,15 @@ func _physics_process(delta) -> void:
 func horizontal_movement(delta : float) -> void:
 	var direction = Input.get_axis("left", "right")
 	
+	if direction < 0 and facing_right:
+		facing_right = false
+		sprite.flip_h = !facing_right
+		
+	elif direction > 0 and not facing_right:
+		facing_right = true
+		sprite.flip_h = !facing_right
+		
+	
 	if direction:
 		velocity.x = move_toward(velocity.x, speed * direction, delta * acceleration)
 		
@@ -99,15 +108,6 @@ func animate() -> void:
 	else:
 		animator.play("idle_0")
 		animator.speed_scale = 0.5
-		
-	
-	if velocity.x < 0 and facing_right:
-		facing_right = false
-		sprite.flip_h = !facing_right
-		
-	elif velocity.x > 0 and not facing_right:
-		facing_right = true
-		sprite.flip_h = !facing_right
 		
 	
 
