@@ -6,3 +6,5 @@ Early in making the game I decided to begin making the art(about on the second d
 1) I could have spent that time whilst I had high motivation making, testing, and refining the systems of the game, instead it was spent draining my motivation by making art(an activity which I have now realized I despise).
 2) It resulted in extremely high quality early sketches that I then realized I couldn’t live up to later in the jam.
 3) I set the game in stone when I created that art, which made changing it rather difficult.
+## The Ermine (IDK what they wanna be called lol)
+I do wanna that "The Ermine" because they were the only person that enabled me to get as far as I did. <3
